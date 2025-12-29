@@ -1,6 +1,7 @@
 import { ContentBlock } from '@/app/sharedComponents/sections/ContentBlock';
 import { Card } from '@/app/sharedComponents/ui/Card';
 import { Icon } from '@/app/sharedComponents/ui/Icon';
+import { DocsHeaderIcon } from '@/app/sharedComponents/ui/DocsHeaderIcon';
 
 export default function DocsIntroPage() {
   return (
@@ -10,12 +11,12 @@ export default function DocsIntroPage() {
       <ContentBlock content={
         <div className="space-y-6">
           <div className="flex items-center gap-4 mb-6">
-            <Icon name="docs" size={48} className="text-brand-primary" />
+            <DocsHeaderIcon name="docs" size={48} />
             <div>
               <h1 className="text-4xl font-bold text-foreground-primary mb-2">Introduction</h1>
               <p className="text-xl text-foreground-secondary">
                 Welcome to the comprehensive documentation for building and managing your professional portfolio.
-              </p>
+              </p><br></br>
             </div>
           </div>
           <section>

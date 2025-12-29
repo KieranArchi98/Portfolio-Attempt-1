@@ -119,37 +119,55 @@ export function InteractiveHero({
             </div>
 
             {/* Content */}
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[85%] 2xl:w-[80%] mx-auto text-center space-y-8">
-                    {/* Title with parallax effect */}
+            <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[85%] 2xl:w-[80%] mx-auto px-4 md:px-6 relative z-10">
+                <div className="flex flex-col items-center text-center space-y-12">
+
+                    {/* Technical Metadata Tag */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        style={{
-                            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-                        }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.6 }}
+                        transition={{ delay: 0.5, duration: 1 }}
+                        className="flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-foreground-muted uppercase"
                     >
-                        <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-foreground-primary leading-[1.1]">
-                            {titlePrefix}{" "}
-                            <span className="text-brand-primary font-extrabold inline-block min-w-[50px]">
-                                {displayText}
-                                <motion.span
-                                    animate={{ opacity: [1, 0] }}
-                                    transition={{ duration: 0.8, repeat: Infinity }}
-                                    className={`inline-block w-[3px] h-[0.8em] ml-1 bg-brand-primary ${isComplete ? 'hidden' : ''}`}
-                                />
-                            </span>{" "}
-                            {titleSuffix}
-                        </h1>
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
+                        [ SYSTEM_DEPLOYMENT: PROXY_INIT ]
                     </motion.div>
 
-                    {/* Subtitle */}
+                    <div className="relative flex flex-col items-center w-full">
+                        {/* HUD Framing (Subtle sides) */}
+                        <div className="absolute -left-4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-brand-primary/20 to-transparent hidden lg:block" />
+                        <div className="absolute -right-4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-brand-primary/20 to-transparent hidden lg:block" />
+
+                        {/* Title with parallax effect */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            style={{
+                                transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
+                            }}
+                            className="space-y-4"
+                        >
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground-primary leading-[1.05]">
+                                {titlePrefix}{" "}
+                                <span className="text-brand-primary font-extrabold inline-block min-w-[50px]">
+                                    {displayText}
+                                    <motion.span
+                                        animate={{ opacity: [1, 0] }}
+                                        transition={{ duration: 0.8, repeat: Infinity }}
+                                        className={`inline-block w-[3px] h-[0.8em] ml-1 bg-brand-primary ${isComplete ? 'hidden' : ''}`}
+                                    />
+                                </span>{" "}
+                                {titleSuffix}
+                            </h1>
+                        </motion.div>
+                    </div>
+
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-xl md:text-2xl lg:text-3xl text-foreground-secondary leading-relaxed font-light"
+                        className="text-lg md:text-xl lg:text-2xl text-foreground-secondary font-mono tracking-tight lowercase opacity-60"
                         style={{
                             transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * 0.01}px)`,
                         }}

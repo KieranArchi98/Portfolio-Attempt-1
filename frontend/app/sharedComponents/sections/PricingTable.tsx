@@ -1,9 +1,10 @@
 "use client";
+import { AnimatedRitualIcon } from '../ui/AnimatedRitualIcon';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
 import { List } from '../ui/List';
 import { motion } from 'framer-motion';
-import { Icon, IconName } from '../ui/Icon';
+import { IconName } from '../ui/Icon';
 
 interface Plan {
     name: string;
@@ -42,14 +43,25 @@ export function PricingTable({ title, subtitle, plans, icon }: PricingTableProps
     } as any;
 
     return (
-        <section className="py-20 lg:py-28">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center mb-16 space-y-4">
-                    <div className="flex items-center justify-center gap-4 mb-4">
-                        {icon && <Icon name={icon} size={48} className="text-brand-primary" />}
-                        <h2 className="text-3xl md:text-5xl font-bold text-foreground-primary tracking-tight">{title}</h2>
+        <section className="pt-10 pb-20 lg:pt-14 lg:pb-28 relative overflow-hidden bg-background-primary">
+            <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[85%] 2xl:w-[80%] mx-auto px-4 md:px-6 relative z-10">
+                <div className="flex flex-col items-center mb-16 space-y-8 w-full">
+                    <div className="flex flex-col items-center justify-center gap-6 w-full">
+                        {icon && (
+                            <AnimatedRitualIcon
+                                name={icon}
+                                size={64}
+                            />
+                        )}
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground-primary tracking-tighter uppercase font-mono">
+                            {title}
+                        </h2>
                     </div>
-                    {subtitle && <p className="text-foreground-secondary text-lg">{subtitle}</p>}
+                    {subtitle && (
+                        <p className="text-base md:text-lg lg:text-xl font-mono opacity-60 w-full text-center lowercase tracking-tight">
+                            {subtitle}
+                        </p>
+                    )}
                 </div>
 
                 <motion.div

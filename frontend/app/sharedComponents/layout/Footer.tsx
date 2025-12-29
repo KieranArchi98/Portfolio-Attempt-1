@@ -15,13 +15,12 @@ export function Footer() {
         }`;
 
     return (
-        <footer className="w-full border-t border-border-default bg-background-muted py-12">
+        <footer className="w-full border-t border-border-default bg-background-muted pt-10 pb-6">
             <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
                 <div className="flex flex-col gap-4 items-center md:items-start">
                     <div className="flex items-center gap-2">
                         <BrandingLogo size={120} />
                     </div>
-                    <p className="text-sm text-foreground-muted">Building the future of digital portfolios.</p>
                 </div>
 
                 <div className="flex flex-col gap-2">
@@ -44,7 +43,7 @@ export function Footer() {
                     <Link href="/privacy" className={getLinkClass('/privacy')}>Privacy</Link>
                 </div>
             </div>
-            <div className="container mx-auto px-4 mt-12 pt-8 border-t border-border-muted text-center text-sm text-foreground-muted">
+            <div className="container mx-auto px-4 mt-6 pt-4 border-t border-border-muted text-center text-sm text-foreground-muted">
                 © {new Date().getFullYear()} Portfolio. All rights reserved.
             </div>
         </footer>

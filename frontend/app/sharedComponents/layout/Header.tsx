@@ -22,7 +22,7 @@ export function Header() {
     const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
 
     return (
-        <header className="w-full border-b border-border-default bg-background-primary sticky top-0 z-50">
+        <header className="w-full border-b border-border-default bg-background-primary sticky top-0 z-[100]">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 <div className="flex items-center gap-8">
                     <Link href="/" className="flex items-center gap-2">
@@ -44,7 +44,7 @@ export function Header() {
                     </nav>
                 </div>
                 <div className="flex items-center gap-4">
-                    <Link href="/login" className="hidden sm:block text-sm font-medium text-foreground-secondary hover:text-foreground-primary">
+                    <Link href="/login" className="hidden md:block text-sm font-medium text-foreground-secondary hover:text-foreground-primary">
                         Log in
                     </Link>
                     <Link href="/signup" className="hidden md:inline-flex">

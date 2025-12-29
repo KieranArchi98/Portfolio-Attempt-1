@@ -73,7 +73,7 @@ export function Sidebar({ type = 'app' }: { type?: 'app' | 'docs' }) {
         const currentPage = allDocsLinks.find(item => item.href === pathname);
 
         return (
-            <div className="md:hidden sticky top-0 z-50 bg-background-primary border-b border-border-default p-4">
+            <div className="md:hidden sticky top-16 z-40 bg-background-primary border-b border-border-default p-4">
                 <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     className="w-full flex items-center justify-between px-4 py-3 bg-background-secondary rounded-lg border border-border-default"
@@ -114,7 +114,7 @@ export function Sidebar({ type = 'app' }: { type?: 'app' | 'docs' }) {
         <>
             {type === 'docs' && <MobileDocsNav />}
 
-            <aside className="w-64 h-screen border-r border-border-default bg-background-secondary sticky top-0 hidden md:flex flex-col p-6 overflow-y-auto">
+            <aside className="w-64 h-[calc(100vh-64px)] border-r border-border-default bg-background-secondary sticky top-16 hidden md:flex flex-col p-6 overflow-y-auto">
                 <div className="mb-8 px-2">
                     <span className="font-bold text-xl text-brand-primary flex items-center gap-2">
                         <Icon name={type === 'app' ? 'dashboard' : 'docs'} size={24} />

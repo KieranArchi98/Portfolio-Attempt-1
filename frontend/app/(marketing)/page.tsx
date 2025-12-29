@@ -16,12 +16,24 @@ export default function HomePage() {
       />
 
       <FeatureGrid
-        title="Everything You Need"
+        title="Technical Domains"
         columns={3}
         features={[
-          { title: 'Beautiful Templates', description: 'Choose from dozens of professionally designed templates.', icon: 'visible' },
-          { title: 'Fast Performance', description: 'Built on Next.js for blazing fast load times and SEO.', icon: 'check' },
-          { title: 'Analytics Included', description: 'Track views and engagement with built-in analytics.', icon: 'search' },
+          {
+            title: "Full-Stack Engineering",
+            description: "End-to-end development of modern web and mobile applications focused on scalability and fluid UX.",
+            icon: "home"
+          },
+          {
+            title: "Network Architecture",
+            description: "Designing and managing complex home lab environments, secure routing, and infrastructure protocols.",
+            icon: "hidden"
+          },
+          {
+            title: "Technical Operations",
+            description: "Specialized support and systematic maintenance for high-performance digital environments.",
+            icon: "search"
+          }
         ]}
       />
 

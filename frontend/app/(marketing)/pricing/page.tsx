@@ -1,42 +1,57 @@
 
 import { PricingTable } from '@/app/sharedComponents/sections/PricingTable';
-import { CTA } from '@/app/sharedComponents/sections/CTA';
+import { PricingCTA } from '@/app/sharedComponents/sections/PricingCTA';
 
 export default function PricingPage() {
   return (
-    <div className="bg-background-secondary/30">
+    <div className="bg-background-primary">
       <PricingTable
-        title="Simple, Transparent Pricing"
-        subtitle="Choose the plan that fits your stage of growth."
+        icon="settings"
+        title="Services"
+        subtitle="Operational baselines for professional engagement and technical consultation."
         plans={[
           {
-            name: 'Starter',
-            price: '$0',
-            description: 'Perfect for students and hobbyists.',
-            features: ['1 Project', 'Basic Analytics', 'Community Support'],
-            cta: 'Start for Free'
+            name: 'Consultation',
+            price: '£0',
+            description: 'Initial architectural review and project scope discussion.',
+            features: [
+              'Technical Assessment',
+              'Project Feasibility',
+              'Roadmap Generation'
+            ],
+            cta: 'Initialize Meeting'
           },
           {
-            name: 'Pro',
-            price: '$12',
-            description: 'For serious freelancers and job seekers.',
-            features: ['Unlimited Projects', 'Custom Domain', 'Advanced Analytics', 'Priority Support'],
+            name: 'Development',
+            price: '£75',
+            description: 'Full-stack engineering and custom application deployment.',
+            features: [
+              'Custom Web/App UI',
+              'Performance Optimization',
+              'Infrastructure Scaling',
+              'Priority Support'
+            ],
             isPopular: true,
-            cta: 'Go Pro'
+            cta: 'Start Project'
           },
           {
-            name: 'Team',
-            price: '$49',
-            description: 'Collaborate with your agency or team.',
-            features: ['5 Team Members', 'Shared Library', 'SSO via Google', 'Dedicated Manager'],
-            cta: 'Contact Sales'
+            name: 'Infrastructure',
+            price: '£150',
+            description: 'Advanced networking, home-lab setups, and server architecture.',
+            features: [
+              'Network Hardening',
+              'Server Virtualization',
+              'Security Auditing',
+              'Direct Protocol Access'
+            ],
+            cta: 'Request Architecture'
           }
         ]}
       />
-      <CTA
-        title="Not sure yet?"
-        description="Start with our free plan and upgrade anytime."
-        primaryAction={{ label: 'Create Free Account', href: '/signup' }}
+      <PricingCTA
+        title="Initialize Your Portfolio Node"
+        description="Select your service baseline and authorize the deployment of your technical vision through my professional infrastructure."
+        primaryAction={{ label: 'Authorize Deployment', href: '/signup' }}
       />
     </div>
   );

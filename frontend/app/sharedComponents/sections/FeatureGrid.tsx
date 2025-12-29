@@ -30,7 +30,7 @@ export function FeatureGrid({ title, features, columns = 3 }: FeatureGridProps) 
     return (
         <section className="py-24 relative overflow-hidden bg-background-primary">
             {/* Top Divider (matches Hero bottom) */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-px bg-gradient-to-r from-transparent via-border-default to-transparent opacity-40 z-30" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-px bg-gradient-to-r from-transparent via-border-default to-transparent opacity-20 z-30" />
 
             <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[85%] 2xl:w-[80%] mx-auto px-4 md:px-6 relative z-10">
                 {title && (

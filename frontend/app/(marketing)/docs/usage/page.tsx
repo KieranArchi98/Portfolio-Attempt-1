@@ -1,6 +1,7 @@
 import { ContentBlock } from '@/app/sharedComponents/sections/ContentBlock';
 import { Card } from '@/app/sharedComponents/ui/Card';
 import { Icon } from '@/app/sharedComponents/ui/Icon';
+import { DocsHeaderIcon } from '@/app/sharedComponents/ui/DocsHeaderIcon';
 
 export default function DocsUsagePage() {
   return (
@@ -9,12 +10,12 @@ export default function DocsUsagePage() {
       <ContentBlock content={
         <div className="space-y-6">
           <div className="flex items-center gap-4 mb-6">
-            <Icon name="dashboard" size={48} className="text-brand-primary" />
+            <DocsHeaderIcon name="dashboard" size={48} />
             <div>
               <h1 className="text-4xl font-bold text-foreground-primary mb-2">Usage Guide</h1>
               <p className="text-xl text-foreground-secondary">
                 Learn how to customize and manage your portfolio effectively.
-              </p>
+              </p><br></br>
             </div>
           </div>
           <section>

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@/app/sharedComponents/ui/Icon';
 import { Button } from '@/app/sharedComponents/ui/Button';
 import { Card } from '@/app/sharedComponents/ui/Card';
+import { AnimatedRitualIcon } from '@/app/sharedComponents/ui/AnimatedRitualIcon';
 
 interface Project {
     id: string;
@@ -18,61 +19,58 @@ interface Project {
 
 const projects: Project[] = [
     {
-        id: '1',
-        name: 'E-Commerce Platform',
-        description: 'Full-stack online store with payment integration',
-        longDescription: 'A comprehensive e-commerce solution built with Next.js and Stripe. Features include product catalog, shopping cart, secure checkout, order management, and admin dashboard.',
+        id: 'konnect',
+        name: 'Konnect',
+        description: 'Agentic dashboard and centralized knowledge base',
+        longDescription: 'A sophisticated agentic command center designed to aggregate diverse knowledge streams and provide a unified interface for system-wide operations and information retrieval.',
         image: '/placeholder-project.jpg',
-        technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
-        githubUrl: 'https://github.com/username/ecommerce',
-        liveUrl: 'https://demo.example.com'
+        technologies: ['React', 'Next.js', 'LLM Integration', 'Tailwind'],
+        githubUrl: 'https://github.com/KieranArchi98/Konnect',
     },
     {
-        id: '2',
-        name: 'Task Management App',
-        description: 'Collaborative project management tool',
-        longDescription: 'A modern task management application with real-time collaboration features. Includes kanban boards, team workspaces, file attachments, and activity tracking.',
+        id: 'gemini-ai',
+        name: 'Gemini AI',
+        description: 'Personalized LLM application interface',
+        longDescription: 'A custom-tailored interface leveraging Google Gemini models to provide specialized AI assistance, optimized for technical workflows and personal productivity.',
         image: '/placeholder-project.jpg',
-        technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-        githubUrl: 'https://github.com/username/taskmanager'
+        technologies: ['Python', 'Google AI SDK', 'Streamlit', 'API Design'],
+        githubUrl: 'https://github.com/KieranArchi98/Gemini-AI',
     },
     {
-        id: '3',
-        name: 'Weather Dashboard',
-        description: 'Real-time weather data visualization',
-        longDescription: 'An interactive weather dashboard that displays current conditions, forecasts, and historical data. Features beautiful charts and location-based weather alerts.',
+        id: 'netdoctor',
+        name: 'NetDoctor',
+        description: 'Python-based network diagnostic utility',
+        longDescription: 'An automated network health monitoring and troubleshooting tool. It performs rapid diagnostics across various protocols to identify bottlenecks and connectivity failures.',
         image: '/placeholder-project.jpg',
-        technologies: ['Vue.js', 'Chart.js', 'OpenWeather API'],
-        githubUrl: 'https://github.com/username/weather-dashboard',
-        liveUrl: 'https://weather.example.com'
+        technologies: ['Python', 'Scapy', 'Network Protocols', 'CLI Automation'],
+        githubUrl: 'https://github.com/KieranArchi98/NetDoctor',
     },
     {
-        id: '4',
-        name: 'Social Media Analytics',
-        description: 'Track and analyze social media metrics',
-        longDescription: 'A comprehensive analytics platform for social media managers. Provides insights into engagement, growth, and content performance across multiple platforms.',
+        id: 'powershell-toolkit',
+        name: 'Powershell CLI Toolkit',
+        description: 'Sysadmin troubleshooting and automation suite',
+        longDescription: 'A comprehensive collection of PowerShell scripts designed for system administrators to automate repetitive tasks, audit security, and troubleshoot Windows environments.',
         image: '/placeholder-project.jpg',
-        technologies: ['Python', 'Django', 'React', 'D3.js'],
-        githubUrl: 'https://github.com/username/social-analytics'
+        technologies: ['PowerShell', 'Windows Server', 'Automation', 'Scripting'],
+        githubUrl: 'https://github.com/KieranArchi98/SysAdmin-CLI-Toolkit',
     },
     {
-        id: '5',
-        name: 'Fitness Tracker',
-        description: 'Personal health and workout logging app',
-        longDescription: 'Track your workouts, nutrition, and progress over time. Includes exercise library, custom workout plans, and progress visualization with charts.',
+        id: 'cosmic-miner',
+        name: 'Cosmic Miner',
+        description: 'Immersive space-themed idle clicker game',
+        longDescription: 'A complex idle game exploring celestial resource extraction. Features intricate progression systems, prestige mechanics, and a data-driven upgrade architecture.',
         image: '/placeholder-project.jpg',
-        technologies: ['React Native', 'Firebase', 'Redux'],
-        githubUrl: 'https://github.com/username/fitness-tracker'
+        technologies: ['TypeScript', 'Vite', 'State Management', 'Game Logic'],
+        githubUrl: 'https://github.com/KieranArchi98/Cosmic-Miner',
     },
     {
-        id: '6',
-        name: 'Blog CMS',
-        description: 'Headless content management system',
-        longDescription: 'A modern headless CMS built for developers. Features markdown support, media management, role-based access control, and RESTful API.',
+        id: 'harbor',
+        name: 'Harbor',
+        description: 'Community-driven forum and discussion platform',
+        longDescription: 'A scalable, Reddit-inspired forum application featuring hierarchical discussions, user voting systems, and specialized technical communities.',
         image: '/placeholder-project.jpg',
-        technologies: ['Next.js', 'Prisma', 'PostgreSQL', 'AWS S3'],
-        githubUrl: 'https://github.com/username/blog-cms',
-        liveUrl: 'https://cms.example.com'
+        technologies: ['Next.js', 'PostgreSQL', 'Prisma', 'Auth.js'],
+        githubUrl: 'https://github.com/KieranArchi98/Harbor',
     }
 ];
 
@@ -80,16 +78,22 @@ export default function PortfolioPage() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
     return (
-        <div className="py-20 lg:py-28">
-            <div className="container mx-auto px-4 md:px-6">
+        <div className="pt-10 pb-20 lg:pt-14 lg:pb-28 relative overflow-hidden bg-background-primary">
+            <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[85%] 2xl:w-[80%] mx-auto px-4 md:px-6 relative z-10">
                 {/* Header */}
-                <div className="text-center mb-16 space-y-4">
-                    <div className="flex items-center justify-center gap-4 mb-4">
-                        <Icon name="code" size={48} className="text-brand-primary" />
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground-primary tracking-tight">
-                            My Projects
+                <div className="flex flex-col items-center mb-16 space-y-8 w-full">
+                    <div className="flex flex-col items-center justify-center gap-6 w-full">
+                        <AnimatedRitualIcon
+                            name="projects"
+                            size={64}
+                        />
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground-primary tracking-tighter uppercase font-mono">
+                            Portfolio
                         </h1>
                     </div>
+                    <p className="text-base md:text-lg lg:text-xl font-mono opacity-60 w-full text-center lowercase tracking-tight">
+                        A systematic collection of architectural solutions and engineering prototypes.
+                    </p>
                 </div>
 
                 {/* Projects Grid */}
