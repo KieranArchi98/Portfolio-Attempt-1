@@ -1,0 +1,70 @@
+@import "./tokens.css";
+
+:root {
+  --background: var(--color-background-primary);
+  --foreground: var(--color-foreground-primary);
+}
+
+/* We don't need @theme inline if we use tokens.css with @theme block. 
+   But create-next-app put standard vars here.
+   I will map standard Tailwind base vars to my tokens if desired, 
+   or just let the tokens.css be the source of truth for custom utilities.
+*/
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+  /* Tighten headings slightly */
+}
+
+/* Override Tailwind's default container to be wider and less constrained */
+.container {
+  max-width: 100% !important;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 95% !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 90% !important;
+  }
+}
+
+/* Override Tailwind Typography prose max-width */
+.prose {
+  max-width: none !important;
+}
