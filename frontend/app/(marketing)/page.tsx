@@ -1,5 +1,6 @@
 
 import { InteractiveHero } from '@/app/sharedComponents/sections/InteractiveHero';
+import { LogoShowcase } from '@/app/sharedComponents/sections/LogoShowcase';
 import { FeatureGrid } from '@/app/sharedComponents/sections/FeatureGrid';
 import { SystemCTA } from '@/app/sharedComponents/sections/SystemCTA';
 
@@ -14,6 +15,24 @@ export default function HomePage() {
         primaryAction={{ label: 'Get Started', href: '/signup' }}
         secondaryAction={{ label: 'View Demo', href: '/portfolio' }}
       />
+
+      <LogoShowcase
+        trackALogos={[
+          { name: 'TechCore', imagePath: '/logo-techcore.png' },
+          { name: 'DataFlow', imagePath: '/logo-dataflow.png' },
+          { name: 'CloudSync', imagePath: '/logo-cloudsync.png' },
+          { name: 'NexusAI', imagePath: '/logo-nexusai.png' },
+          { name: 'Quantum Labs', imagePath: '/logo-quantumlabs.png' },
+        ]}
+        trackBLogos={[
+          { name: 'VectorSpace', imagePath: '/logo-vectorspace.png' },
+          { name: 'TechCore', imagePath: '/logo-techcore.png' },
+          { name: 'DataFlow', imagePath: '/logo-dataflow.png' },
+          { name: 'CloudSync', imagePath: '/logo-cloudsync.png' },
+          { name: 'NexusAI', imagePath: '/logo-nexusai.png' },
+        ]}
+      />
+
 
       <FeatureGrid
         title="Technical Domains"
