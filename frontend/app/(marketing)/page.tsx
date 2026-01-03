@@ -3,6 +3,7 @@ import { InteractiveHero } from '@/app/sharedComponents/sections/InteractiveHero
 import { LogoShowcase } from '@/app/sharedComponents/sections/LogoShowcase';
 import { FeatureGrid } from '@/app/sharedComponents/sections/FeatureGrid';
 import { SystemCTA } from '@/app/sharedComponents/sections/SystemCTA';
+import { ProblemSolution } from '@/app/sharedComponents/sections/ProblemSolution';
 
 export default function HomePage() {
   return (
@@ -33,9 +34,11 @@ export default function HomePage() {
         ]}
       />
 
+      <ProblemSolution />
 
       <FeatureGrid
-        title="Technical Domains"
+
+        title=""
         columns={3}
         features={[
           {

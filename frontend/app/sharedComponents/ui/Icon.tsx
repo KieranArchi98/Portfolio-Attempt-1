@@ -21,6 +21,10 @@ import {
     Download01Icon,
     PlayCircle02Icon,
     CodeIcon,
+    Image01Icon,
+    GithubIcon,
+    DribbbleIcon,
+    Linkedin01Icon,
 } from 'hugeicons-react';
 
 /* 
@@ -39,6 +43,7 @@ export const ICONS = {
     info: InformationCircleIcon,
     check: CheckmarkCircle01Icon,
     alert: AlertCircleIcon,
+    "alert-circle": AlertCircleIcon,
     close: Cancel01Icon,
     visible: ViewIcon,
     hidden: ViewOffIcon,
@@ -51,6 +56,10 @@ export const ICONS = {
     download: Download01Icon,
     cplay: PlayCircle02Icon,
     code: CodeIcon,
+    image: Image01Icon,
+    github: GithubIcon,
+    dribbble: DribbbleIcon,
+    linkedin: Linkedin01Icon,
 };
 
 export type IconName = keyof typeof ICONS;

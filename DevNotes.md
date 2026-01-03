@@ -1,5 +1,7 @@
 
-#ToDoList (Aim: Improve UI/UX + Advanced Backend)
+#ToDoList 
+
+What Do I Want To Achieve This Project?
 - Making GUIs 'Look Good'
 - Making Backends Secure and Robust, Not Just Functional
 - Improving AI Development Workflow/Pipeline
@@ -18,6 +20,7 @@ Product ->
 - Metrics/Stats
 - Features
 - Testimonials & Reviews
+- Step Section??
 
 Pricing ->
 - Pricing Cards
@@ -29,6 +32,7 @@ Projects ->
 - Add Project Details
 - Link To GitHub/Socials
 - *Ensure Interfactive, Dynamic and Scalable*
+- Timeline Section??
 
 Docs ->
 - Introduction: What is this?
