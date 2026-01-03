@@ -34,30 +34,31 @@ export default function HomePage() {
         ]}
       />
 
-      <ProblemSolution />
-
       <FeatureGrid
-
-        title=""
         columns={3}
         features={[
           {
             title: "Full-Stack Engineering",
             description: "End-to-end development of modern web and mobile applications focused on scalability and fluid UX.",
-            icon: "home"
+            icon: "home",
+            variant: "stack"
           },
           {
             title: "Network Architecture",
             description: "Designing and managing complex home lab environments, secure routing, and infrastructure protocols.",
-            icon: "hidden"
+            icon: "hidden",
+            variant: "network"
           },
           {
             title: "Technical Operations",
             description: "Specialized support and systematic maintenance for high-performance digital environments.",
-            icon: "search"
+            icon: "search",
+            variant: "ops"
           }
         ]}
       />
+
+      <ProblemSolution />
 
       <SystemCTA
         title="Ready to Build Your Brand?"

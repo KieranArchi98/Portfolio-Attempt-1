@@ -3,11 +3,14 @@
 import { motion } from 'framer-motion';
 import { Card } from '../ui/Card';
 import { Icon, IconName } from '../ui/Icon';
+import { FeatureVisual } from './FeatureVisuals';
 
 interface Feature {
     title: string;
     description: string;
     icon: IconName;
+    imageUrl?: string;
+    variant?: 'stack' | 'network' | 'ops';
 }
 
 interface FeatureGridProps {
@@ -76,16 +79,30 @@ export function FeatureGrid({ title, features, columns = 3 }: FeatureGridProps) 
                                     {String(idx + 1).padStart(2, '0')}
                                 </div>
 
-                                {/* Icon with gradient background */}
-                                <motion.div
-                                    className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-primary/20 to-brand-primary/5 flex items-center justify-center text-brand-primary shadow-lg shadow-brand-primary/10 group-hover:shadow-brand-primary/20 transition-all duration-500"
-                                    whileHover={{ scale: 1.05, rotate: 5 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                >
-                                    {/* Glow effect */}
-                                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-primary/30 to-transparent opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500" />
-                                    <Icon name={feature.icon} size={28} className="relative z-10" />
-                                </motion.div>
+                                {feature.imageUrl || feature.variant ? (
+                                    <div className="relative w-full h-48 mb-6 rounded-2xl overflow-visible group-hover:scale-105 transition-transform duration-500">
+                                        {feature.imageUrl ? (
+                                            <img
+                                                src={feature.imageUrl}
+                                                alt={feature.title}
+                                                className="w-full h-full object-cover rounded-2xl"
+                                            />
+                                        ) : (
+                                            <FeatureVisual variant={feature.variant} />
+                                        )}
+                                    </div>
+                                ) : (
+                                    /* Icon with gradient background */
+                                    <motion.div
+                                        className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-primary/20 to-brand-primary/5 flex items-center justify-center text-brand-primary shadow-lg shadow-brand-primary/10 group-hover:shadow-brand-primary/20 transition-all duration-500"
+                                        whileHover={{ scale: 1.05, rotate: 5 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                                    >
+                                        {/* Glow effect */}
+                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-primary/30 to-transparent opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500" />
+                                        <Icon name={feature.icon} size={28} className="relative z-10" />
+                                    </motion.div>
+                                )}
 
                                 {/* Content */}
                                 <div className="space-y-3 relative z-10">
