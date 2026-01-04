@@ -22,7 +22,7 @@ export function LogoShowcase({
     const duplicatedTrackB = [...trackBLogos, ...trackBLogos];
 
     return (
-        <section className="relative bg-white overflow-hidden">
+        <section className="relative bg-white overflow-hidden pb-16 md:pb-32">
             <div className="w-full relative z-10">
 
                 {/* First Track - Scrolling Right to Left */}

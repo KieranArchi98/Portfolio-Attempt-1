@@ -1,9 +1,8 @@
-
 import { InteractiveHero } from '@/app/sharedComponents/sections/InteractiveHero';
 import { LogoShowcase } from '@/app/sharedComponents/sections/LogoShowcase';
 import { FeatureGrid } from '@/app/sharedComponents/sections/FeatureGrid';
-import { SystemCTA } from '@/app/sharedComponents/sections/SystemCTA';
 import { ProblemSolution } from '@/app/sharedComponents/sections/ProblemSolution';
+import { SystemCTA } from '@/app/sharedComponents/sections/SystemCTA';
 
 export default function HomePage() {
   return (

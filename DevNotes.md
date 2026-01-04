@@ -20,7 +20,7 @@ Product ->
 - Metrics/Stats
 - Features
 - Testimonials & Reviews
-- Step Section??
+- Certifications
 
 Pricing ->
 - Pricing Cards
@@ -63,3 +63,36 @@ Signup Page
 
 Dashboard ->
 *TBD: Perhaps Metrics, Statistics, and Project/Account Management*
+
+
+
+
+
+#Roadmap
+[3/1/26:Frontend]
+- Add New Frontend Sections
+- Iterate & Refine GUI UX
+- Adjust Content and Verify functionality
+- Add Projects & Blogs (Placeholders Until Backend)
+- Improve Logo/Branding +Navbar +Footer
+- Terms, Privacy, and 404 Pages (Optional)
+[?/?/26:Backend]
+- Structure/Architecture of Backend (APIs etc)
+- Database Structure & Connectivity
+- Login & Signup Functionality/Validation
+- Dashboard: Still Figuring Out What I Want to Do Here
+    - Personal Project Management 
+    - Metrics & Analytics
+    - Get Creative With AI, Features, and Functionality (What Can Be Done?)
+
+[Extra]
+- Add Bounding Box To Landing Page Hero + Dynamic Reset
+- LLM Chatbot Linked To Knowledge Base (or Tuning)
+- 
+
+[DevBlog:3/1/26]
+- Metrics: whtie background, avoid cards, add dynamic annimations/graphs or charts.
+- FeatureGrid: Match landing page /w graphcs.
+- Testimonials: Width Issue, try find a way to make them non-uniform so they appear more dynamically.
+- Certifications: Should be more impactful, glowing, and meaningful (using annimations and visual effects) they're accolades, symbols of achievement, and make you stand out.
+- Hero: It should be informative, engaging, and original, but without competing with the landing page. Experiment with unique variations.

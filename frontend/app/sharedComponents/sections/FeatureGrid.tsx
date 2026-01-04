@@ -9,20 +9,21 @@ interface Feature {
     description: string;
     icon: IconName;
     imageUrl?: string;
-    variant?: 'stack' | 'network' | 'ops';
+    variant?: string;
 }
 
 interface FeatureGridProps {
     title?: string;
     features: Feature[];
     columns?: 2 | 3 | 4;
+    visualComponent?: React.ComponentType<{ variant?: string }>;
 }
 
 /**
  * feature grid section
- * Displays a grid of feature cards with modern, sophisticated styling.
+ * Displays a grid of feature cards. Supports custom 3D visuals via visualComponent prop.
  */
-export function FeatureGrid({ title, features, columns = 3 }: FeatureGridProps) {
+export function FeatureGrid({ title, features, columns = 3, visualComponent: CustomVisual }: FeatureGridProps) {
     const gridCols = {
         2: 'md:grid-cols-2',
         3: 'md:grid-cols-3',
@@ -30,7 +31,7 @@ export function FeatureGrid({ title, features, columns = 3 }: FeatureGridProps) 
     };
 
     return (
-        <section className="pt-48 pb-32 relative overflow-hidden bg-background-primary">
+        <section className="pb-32 relative overflow-hidden bg-background-primary">
             {/* Top Divider */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-px bg-gradient-to-r from-transparent via-border-default to-transparent opacity-20 z-30" />
 
@@ -78,7 +79,7 @@ export function FeatureGrid({ title, features, columns = 3 }: FeatureGridProps) 
                                                 className="w-full h-full object-cover rounded-2xl"
                                             />
                                         ) : (
-                                            <FeatureVisual variant={feature.variant} />
+                                            CustomVisual ? <CustomVisual variant={feature.variant} /> : <FeatureVisual variant={feature.variant} />
                                         )}
                                     </div>
                                 ) : (
