@@ -47,12 +47,6 @@ export function PricingTable({ title, subtitle, plans, icon }: PricingTableProps
             <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[85%] 2xl:w-[80%] mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center mb-16 space-y-8 w-full">
                     <div className="flex flex-col items-center justify-center gap-6 w-full">
-                        {icon && (
-                            <AnimatedRitualIcon
-                                name={icon}
-                                size={64}
-                            />
-                        )}
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground-primary tracking-tighter uppercase font-mono">
                             {title}
                         </h2>
@@ -72,12 +66,17 @@ export function PricingTable({ title, subtitle, plans, icon }: PricingTableProps
                     className="grid md:grid-cols-3 gap-8 w-full items-start"
                 >
                     {plans.map((plan) => (
-                        <motion.div key={plan.name} variants={itemVariants} className="h-full flex">
+                        <motion.div
+                            key={plan.name}
+                            variants={itemVariants}
+                            className="h-full flex"
+                            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                        >
                             <Card
                                 variant={plan.isPopular ? 'bordered' : 'flat'}
-                                className={`relative flex flex-col gap-8 w-full ${plan.isPopular
-                                    ? 'border-brand-primary shadow-2xl ring-1 ring-brand-primary/20 z-10 md:-mt-4 md:mb-4 bg-white'
-                                    : 'bg-background-secondary border-transparent hover:bg-background-secondary/80'
+                                className={`relative flex flex-col gap-8 w-full transition-all duration-300 ${plan.isPopular
+                                    ? 'border-brand-primary shadow-2xl ring-1 ring-brand-primary/20 z-10 md:-mt-4 md:mb-4 bg-white hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]'
+                                    : 'bg-background-secondary border-transparent hover:bg-background-secondary/80 hover:shadow-xl hover:border-border-default/50'
                                     }`}
                                 padding="xl"
                             >

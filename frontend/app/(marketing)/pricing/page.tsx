@@ -1,6 +1,7 @@
-
+import { PricingFeatures } from '@/app/sharedComponents/sections/PricingFeatures';
+import { PricingFAQ } from '@/app/sharedComponents/sections/PricingFAQ';
+import { PricingFinalCTA } from '@/app/sharedComponents/sections/PricingFinalCTA';
 import { PricingTable } from '@/app/sharedComponents/sections/PricingTable';
-import { PricingCTA } from '@/app/sharedComponents/sections/PricingCTA';
 
 export default function PricingPage() {
   return (
@@ -48,11 +49,15 @@ export default function PricingPage() {
           }
         ]}
       />
-      <PricingCTA
-        title="Initialize Your Portfolio Node"
-        description="Select your service baseline and authorize the deployment of your technical vision through my professional infrastructure."
-        primaryAction={{ label: 'Authorize Deployment', href: '/signup' }}
-      />
+
+      {/* What's Included Grid */}
+      <PricingFeatures />
+
+      {/* FAQ Section */}
+      <PricingFAQ />
+
+      {/* Final High-Impact CTA */}
+      <PricingFinalCTA />
     </div>
   );
 }
