@@ -8,203 +8,83 @@ export default function DocsAPIPage() {
     <div className="space-y-8">
 
       <ContentBlock content={
-        <div className="space-y-6">
-          <div className="flex items-center gap-4 mb-6">
+        <div className="space-y-6 text-foreground-secondary leading-relaxed font-mono lowercase">
+          <div className="flex items-center gap-4 mb-8">
             <DocsHeaderIcon name="projects" size={48} />
             <div>
-              <h1 className="text-4xl font-bold text-foreground-primary mb-2">API Reference</h1>
-              <p className="text-xl text-foreground-secondary">
-                Complete reference for all components, utilities, and APIs.
-              </p><br></br>
+              <h1 className="text-4xl font-black text-foreground-primary tracking-tighter uppercase mb-2">
+                Core <span className="text-brand-primary">Architecture</span>
+              </h1>
+              <p className="text-sm border-l-2 border-brand-primary pl-4 py-1 italic opacity-80">
+                Design Systems, Interaction Logic, and AI Communication Protocols.
+              </p>
             </div>
           </div>
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="code" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">Core Components</h2>
-            </div>
 
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold text-foreground-primary mb-3">Hero Component</h3>
-                <p className="text-foreground-secondary mb-3">
-                  Main landing section for pages with title, subtitle, and call-to-action buttons.
-                </p>
-                <Card className="bg-background-muted p-4">
-                  <code className="text-sm text-foreground-primary whitespace-pre">
-                    {`<Hero
-  title="Your Title"
-  subtitle="Your subtitle text"
-  primaryAction={{ label: 'Get Started', href: '/signup' }}
-  secondaryAction={{ label: 'Learn More', href: '/docs' }}
-  align="center"
-  icon="visible"
-/>`}
-                  </code>
-                </Card>
-                <div className="mt-3">
-                  <h4 className="font-semibold text-foreground-primary mb-2">Props:</h4>
-                  <ul className="text-sm text-foreground-secondary space-y-1">
-                    <li><code className="bg-background-muted px-2 py-1 rounded">title</code> (string, required) - Main heading text</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">subtitle</code> (string, required) - Supporting text</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">primaryAction</code> (object, required) - Primary CTA button</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">secondaryAction</code> (object, optional) - Secondary CTA button</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">align</code> ('left' | 'center', optional) - Text alignment</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">icon</code> (IconName, optional) - Icon to display</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-foreground-primary mb-3">Card Component</h3>
-                <p className="text-foreground-secondary mb-3">
-                  Versatile container component with multiple variants and hover effects.
-                </p>
-                <Card className="bg-background-muted p-4">
-                  <code className="text-sm text-foreground-primary whitespace-pre">
-                    {`<Card
-  variant="bordered"
-  padding="lg"
-  interactive={true}
-  className="custom-class"
->
-  Your content here
-</Card>`}
-                  </code>
-                </Card>
-                <div className="mt-3">
-                  <h4 className="font-semibold text-foreground-primary mb-2">Props:</h4>
-                  <ul className="text-sm text-foreground-secondary space-y-1">
-                    <li><code className="bg-background-muted px-2 py-1 rounded">variant</code> ('flat' | 'bordered' | 'elevated') - Visual style</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">padding</code> ('sm' | 'md' | 'lg' | 'xl') - Internal spacing</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">interactive</code> (boolean) - Enable hover effects</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-foreground-primary mb-3">Button Component</h3>
-                <p className="text-foreground-secondary mb-3">
-                  Customizable button with multiple variants and sizes.
-                </p>
-                <Card className="bg-background-muted p-4">
-                  <code className="text-sm text-foreground-primary whitespace-pre">
-                    {`<Button
-  variant="primary"
-  size="lg"
-  onClick={handleClick}
->
-  Click Me
-</Button>`}
-                  </code>
-                </Card>
-                <div className="mt-3">
-                  <h4 className="font-semibold text-foreground-primary mb-2">Variants:</h4>
-                  <ul className="text-sm text-foreground-secondary space-y-1">
-                    <li><code className="bg-background-muted px-2 py-1 rounded">primary</code> - Brand colored button</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">secondary</code> - Muted style</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">outline</code> - Bordered button</li>
-                    <li><code className="bg-background-muted px-2 py-1 rounded">ghost</code> - Minimal style</li>
-                  </ul>
-                </div>
-              </div>
+          <section className="space-y-4">
+            <div className="flex items-center gap-3 mb-2">
+              <Icon name="code" size={24} className="text-brand-primary" />
+              <h2 className="text-xl font-bold text-foreground-primary uppercase tracking-tight">Design Token: Digital Telemetry</h2>
             </div>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="settings" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">Utility Functions</h2>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-foreground-primary mb-2">cn() - Class Name Merger</h3>
-                <p className="text-sm text-foreground-secondary mb-2">
-                  Combines Tailwind classes intelligently, resolving conflicts.
-                </p>
-                <Card className="bg-background-muted p-3">
-                  <code className="text-sm text-foreground-primary">
-                    cn('px-4 py-2', 'px-6') // Result: 'px-6 py-2'
-                  </code>
-                </Card>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="info" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">Design Tokens</h2>
-            </div>
-            <p className="text-foreground-secondary mb-4">
-              All design tokens are defined in <code className="bg-background-muted px-2 py-1 rounded">app/styles/tokens.css</code>
+            <p>
+              The visual layer is governed by a technical design system mapped to real-world infrastructure aesthetics.
             </p>
             <div className="grid md:grid-cols-2 gap-4">
-              <Card className="p-4">
-                <h3 className="font-semibold text-foreground-primary mb-2">Colors</h3>
-                <ul className="text-sm text-foreground-secondary space-y-1">
-                  <li><code className="bg-background-muted px-2 py-1 rounded">--color-brand-primary</code></li>
-                  <li><code className="bg-background-muted px-2 py-1 rounded">--color-foreground-primary</code></li>
-                  <li><code className="bg-background-muted px-2 py-1 rounded">--color-background-primary</code></li>
-                </ul>
+              <Card className="p-4 bg-background-secondary/30">
+                <h4 className="font-bold text-brand-primary uppercase text-[10px] mb-2 tracking-widest">Brand Primary</h4>
+                <code className="text-[10px] text-foreground-primary">--color-brand-primary: hsl(221, 83%, 53%)</code>
+                <p className="text-[9px] mt-2 opacity-60 italic">"The signal highlight across the Mission Control interface."</p>
               </Card>
-              <Card className="p-4">
-                <h3 className="font-semibold text-foreground-primary mb-2">Spacing</h3>
-                <ul className="text-sm text-foreground-secondary space-y-1">
-                  <li><code className="bg-background-muted px-2 py-1 rounded">--spacing-xs</code> to <code className="bg-background-muted px-2 py-1 rounded">--spacing-6xl</code></li>
-                  <li><code className="bg-background-muted px-2 py-1 rounded">--container-padding</code></li>
-                  <li><code className="bg-background-muted px-2 py-1 rounded">--section-spacing</code></li>
-                </ul>
+              <Card className="p-4 bg-background-secondary/30">
+                <h4 className="font-bold text-brand-primary uppercase text-[10px] mb-2 tracking-widest">Tech Background</h4>
+                <code className="text-[10px] text-foreground-primary">--color-background-primary: hsl(222, 47%, 11%)</code>
+                <p className="text-[9px] mt-2 opacity-60 italic">"The deep-space void for high-contrast telemetry display."</p>
               </Card>
             </div>
           </section>
 
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="visible" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">Animation Utilities</h2>
+          <section className="space-y-4">
+            <div className="flex items-center gap-3 mb-2">
+              <Icon name="visible" size={24} className="text-brand-primary" />
+              <h2 className="text-xl font-bold text-foreground-primary uppercase tracking-tight">3D Interaction Layer</h2>
             </div>
-            <p className="text-foreground-secondary mb-4">
-              The platform uses Framer Motion for animations. Common patterns:
+            <p className="text-xs">
+              Project engagement is enhanced via a high-fidelity 3D tilt engine (ProjectCard3D) integrated with Framer Motion.
             </p>
-            <Card className="bg-background-muted p-4">
-              <code className="text-sm text-foreground-primary whitespace-pre">
-                {`const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
-
-<motion.div {...fadeInUp}>
-  Content
-</motion.div>`}
+            <Card className="bg-background-muted p-4 border-l-4 border-brand-primary">
+              <code className="text-xs text-foreground-primary whitespace-pre">
+                {`const tiltEffect = {
+  rotateX: useTransform(y, [0, height], [15, -15]),
+  rotateY: useTransform(x, [0, width], [-15, 15]),
+  preserve3d: true
+};`}
               </code>
             </Card>
           </section>
 
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="file" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">TypeScript Types</h2>
+          <section className="p-6 bg-background-secondary/10 border border-white/5 rounded-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <Icon name="settings" size={24} className="text-brand-primary" />
+              <h2 className="text-xl font-bold text-foreground-primary uppercase tracking-tight">Communication Protocols</h2>
             </div>
-            <p className="text-foreground-secondary mb-4">
-              Key TypeScript interfaces and types used throughout the application:
-            </p>
-            <Card className="bg-background-muted p-4">
-              <code className="text-sm text-foreground-primary whitespace-pre">
-                {`interface Project {
-  id: string;
-  name: string;
-  description: string;
-  longDescription: string;
-  technologies: string[];
-  githubUrl: string;
-  liveUrl?: string;
-}
+            <div className="space-y-4 text-xs">
+              <div className="border-b border-white/5 pb-4">
+                <span className="text-brand-primary font-black uppercase tracking-widest block mb-1">RAG Data Ingestion</span>
+                <p>Vector embeddings (Gemini AI) are synchronized via a secure transmission layer to the Konnect orchestration engine.</p>
+              </div>
+              <div>
+                <span className="text-brand-primary font-black uppercase tracking-widest block mb-1">Telemetry Broadcast</span>
+                <p>Real-time metrics from the NetDoctor Python core are streamed to the frontend via high-frequency state updates.</p>
+              </div>
+            </div>
+          </section>
 
-type IconName = 'code' | 'visible' | 'settings' | ...;`}
-              </code>
-            </Card>
+          <section className="space-y-4 text-xs opacity-60">
+            <div className="flex items-center gap-3">
+              <Icon name="info" size={20} />
+              <span className="font-bold uppercase tracking-widest">Protocol Version: 1.0.4-LTS</span>
+            </div>
+            <p>This architecture is designed for vertical scalability and horizontal component integration across the Atlas ecosystem.</p>
           </section>
         </div>
       } />

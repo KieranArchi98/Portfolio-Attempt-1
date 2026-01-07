@@ -4,28 +4,150 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Icon } from '@/app/sharedComponents/ui/Icon';
 
+const PersonaVisualizer = () => {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+      {/* Background Hex Grid */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.03] scale-150 rotate-12" viewBox="0 0 100 100">
+        <pattern id="hexGrid" width="10" height="17.32" patternUnits="userSpaceOnUse" overflow="visible">
+          <path d="M5 0 L10 2.88 L10 8.66 L5 11.54 L0 8.66 L0 2.88 Z" fill="none" stroke="currentColor" strokeWidth="0.2" />
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#hexGrid)" />
+      </svg>
+
+      {/* Main Persona SVG */}
+      <svg className="w-full h-full opacity-80 transition-all duration-700 group-hover:opacity-100 group-hover:scale-110" viewBox="0 0 200 200">
+        <defs>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* Human Silhouette - Technical Blueprint Style */}
+        <g className="text-brand-primary" filter="url(#glow)">
+          {/* Shoulders & Chest */}
+          <path
+            d="M 40 180 C 40 140 70 110 100 110 C 130 110 160 140 160 180"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            fill="none"
+            className="opacity-40"
+          />
+          {/* Head Structure */}
+          <circle
+            cx="100"
+            cy="70"
+            r="28"
+            stroke="currentColor"
+            strokeWidth="1"
+            fill="none"
+            className="opacity-60"
+          />
+          <circle
+            cx="100"
+            cy="70"
+            r="22"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            fill="none"
+            strokeDasharray="4 2"
+            className="opacity-30"
+          />
+
+          {/* Neural Interface / Focus Points */}
+          <g className="animate-pulse">
+            <circle cx="100" cy="65" r="2" fill="currentColor" />
+            <circle cx="85" cy="75" r="1.5" fill="currentColor" opacity="0.5" />
+            <circle cx="115" cy="75" r="1.5" fill="currentColor" opacity="0.5" />
+          </g>
+
+          {/* Internal Circuits */}
+          <path
+            d="M 85 75 Q 100 85 115 75 M 100 70 L 100 110"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            fill="none"
+            opacity="0.2"
+          />
+        </g>
+
+        {/* Rotating Telemetry Rings */}
+        <g className="opacity-20 transition-opacity duration-500 group-hover:opacity-60">
+          <circle cx="100" cy="70" r="45" stroke="currentColor" fill="none" strokeWidth="0.5" strokeDasharray="10 5">
+            <animateTransform attributeName="transform" type="rotate" from="0 100 70" to="360 100 70" dur="20s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="100" cy="70" r="52" stroke="currentColor" fill="none" strokeWidth="0.2" strokeDasharray="1 4">
+            <animateTransform attributeName="transform" type="rotate" from="360 100 70" to="0 100 70" dur="30s" repeatCount="indefinite" />
+          </circle>
+        </g>
+
+        {/* Scanning Laser HUD */}
+        <g className="text-brand-primary opacity-40">
+          <line x1="40" y1="0" x2="160" y2="0" stroke="currentColor" strokeWidth="0.5">
+            <animate attributeName="y1" values="40;160;40" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="y2" values="40;160;40" dur="3s" repeatCount="indefinite" />
+          </line>
+          {/* HUD Brackets */}
+          <path d="M 30 50 L 30 30 L 50 30" stroke="currentColor" strokeWidth="1" fill="none" />
+          <path d="M 170 50 L 170 30 L 150 30" stroke="currentColor" strokeWidth="1" fill="none" />
+          <path d="M 30 150 L 30 170 L 50 170" stroke="currentColor" strokeWidth="1" fill="none" />
+          <path d="M 170 150 L 170 170 L 150 170" stroke="currentColor" strokeWidth="1" fill="none" />
+        </g>
+
+        {/* Data Stream Particles */}
+        {[...Array(6)].map((_, i) => (
+          <circle key={i} r="1" fill="currentColor" className="text-brand-primary">
+            <animate
+              attributeName="cx"
+              values={`${80 + Math.random() * 40};${80 + Math.random() * 40}`}
+              dur={`${2 + i}s`}
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="cy"
+              values="110;180"
+              dur={`${2 + i}s`}
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="opacity"
+              values="0;1;0"
+              dur={`${2 + i}s`}
+              repeatCount="indefinite"
+            />
+          </circle>
+        ))}
+      </svg>
+    </div>
+  );
+};
+
 export default function BlogPage() {
   const posts = [
     {
-      slug: 'the-rise-of-agentic-systems',
-      title: 'The Rise of Agentic Systems',
-      date: 'Dec 24, 2025',
-      category: 'Architecture',
-      excerpt: 'Exploring the shift from static dashboards to proactive agentic environments. An introduction to the philosophy behind Konnect.'
+      slug: 'cosmic-miner-react-game-engine',
+      title: 'Cosmic Miner: React as a Game Engine',
+      date: 'Jan 05, 2026',
+      category: 'Development',
+      excerpt: 'Exploring state management, performance optimizations, and the challenges of building an idle clicker game using React.'
     },
     {
-      slug: 'automating-network-diagnostics',
-      title: 'Automating Network Diagnostics',
-      date: 'Nov 18, 2025',
-      category: 'Engineering',
-      excerpt: 'Leveraging Python and Scapy to build rapid troubleshooting utilities. A technical deep-dive into the NetDoctor architecture.'
+      slug: 'konnect-agentic-orchestration',
+      title: 'Konnect: The Logic of Agentic Systems',
+      date: 'Dec 28, 2025',
+      category: 'AI Architecture',
+      excerpt: 'How I built Konnect to handle proactive LangChain agent coordination and seamless RAG knowledge base integration.'
     },
     {
-      slug: 'scripting-the-infrastructure',
-      title: 'Scripting the Infrastructure',
-      date: 'Oct 05, 2025',
-      category: 'Automation',
-      excerpt: 'Building robust, reusable PowerShell toolkits for modern Windows environments. Strategies for low-maintenance sysadmin automation.'
+      slug: 'building-an-immersive-portfolio',
+      title: 'Building a "Mission Control" Portfolio',
+      date: 'Jan 07, 2026',
+      category: 'Design',
+      excerpt: 'A deep-dive into the technical stack behind this portfolio, from Digital Telemetry backgrounds to code-driven visual assets.'
     },
   ];
 
@@ -45,15 +167,11 @@ export default function BlogPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, ease: "circOut" }}
-                className="relative shrink-0"
+                className="relative shrink-0 group"
               >
                 <div className="absolute inset-0 bg-brand-primary/20 blur-3xl rounded-full" />
-                <div className="relative w-20 h-20 md:w-32 md:h-32 xl:w-48 xl:h-48 rounded-full p-1 border border-white/10 backdrop-blur-3xl overflow-hidden bg-background-secondary/30 shadow-2xl">
-                  <img
-                    src="/projects/avatar-kieran.png"
-                    alt="Kieran"
-                    className="w-full h-full object-cover rounded-full mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
-                  />
+                <div className="relative w-20 h-20 md:w-32 md:h-32 xl:w-48 xl:h-48 rounded-full p-1 border border-white/10 backdrop-blur-3xl overflow-hidden bg-background-secondary/30 shadow-2xl flex items-center justify-center">
+                  <PersonaVisualizer />
                 </div>
                 <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-brand-primary rounded-full border-4 border-background-primary flex items-center justify-center">
                   <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
@@ -68,7 +186,7 @@ export default function BlogPage() {
                   transition={{ delay: 0.3 }}
                 >
                   <h1 className="text-2xl md:text-3xl xl:text-5xl font-black text-foreground-primary tracking-tighter uppercase font-mono text-center xl:text-left">
-                    Kieran<span className="text-brand-primary">.log</span>
+                    Dev<span className="text-brand-primary"> Blog</span>
                   </h1>
                   <p className="text-[10px] font-black uppercase tracking-widest text-foreground-muted/50 font-mono mt-1 text-center xl:text-left">
                     Principal Systems Architect
@@ -87,7 +205,7 @@ export default function BlogPage() {
                   <div className="absolute left-6 xl:left-8 -top-2 w-4 h-4 bg-background-secondary border-l border-t border-border-default rotate-45 xl:hidden" />
 
                   <p className="text-xs md:text-sm font-mono text-foreground-secondary leading-relaxed lowercase">
-                    Transmitting technical deep-dives on <span className="text-brand-primary font-bold">agentic design</span> and resilient infrastructure. Stay synchronized.
+                    A personal account of what I&apos;m doing and what I&apos;m learning in the world of <span className="text-brand-primary font-bold">systems architecture</span> and AI.
                   </p>
 
                   <div className="mt-4 flex gap-4 opacity-40 group-hover:opacity-100 transition-opacity justify-center xl:justify-start">

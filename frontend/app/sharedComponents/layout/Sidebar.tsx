@@ -30,17 +30,17 @@ export function Sidebar({ type = 'app' }: { type?: 'app' | 'docs' }) {
 
     const docsItems = [
         {
-            label: "Getting Started",
+            label: "System Fundamentals",
             children: [
-                { label: "Introduction", href: "/docs/introduction", icon: "HiOutlineDocumentText" },
-                { label: "Installation", href: "/docs/installation", icon: "HiOutlineDownload" }
+                { label: "Technical Overview", href: "/docs/introduction", icon: "HiOutlineDocumentText" },
+                { label: "Deployment Protocols", href: "/docs/installation", icon: "HiOutlineDownload" }
             ]
         },
         {
-            label: "Guides",
+            label: "Operation & Logic",
             children: [
-                { label: "Usage", href: "/docs/usage", icon: "HiOutlinePlay" },
-                { label: "API Reference", href: "/docs/api", icon: "HiOutlineCode" }
+                { label: "Operations Manual", href: "/docs/usage", icon: "HiOutlinePlay" },
+                { label: "Core Architecture", href: "/docs/api", icon: "HiOutlineCode" }
             ]
         }
     ];

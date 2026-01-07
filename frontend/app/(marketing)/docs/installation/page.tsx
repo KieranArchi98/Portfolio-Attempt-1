@@ -8,147 +8,109 @@ export default function DocsInstallationPage() {
     <div className="space-y-8">
 
       <ContentBlock content={
-        <div className="space-y-6">
-          <div className="flex items-center gap-4 mb-6">
+        <div className="space-y-6 text-foreground-secondary leading-relaxed font-mono lowercase">
+          <div className="flex items-center gap-4 mb-8">
             <DocsHeaderIcon name="file" size={48} />
             <div>
-              <h1 className="text-4xl font-bold text-foreground-primary mb-2">Installation</h1>
-              <p className="text-xl text-foreground-secondary">
-                Get your development environment set up and running in minutes.
-              </p><br></br>
+              <h1 className="text-4xl font-black text-foreground-primary tracking-tighter uppercase mb-2">
+                Deployment <span className="text-brand-primary">Protocols</span>
+              </h1>
+              <p className="text-sm border-l-2 border-brand-primary pl-4 py-1 italic opacity-80">
+                Automated CI/CD Pipelines, Infrastructure as Code, and Security Verification.
+              </p>
             </div>
           </div>
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="check" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">Prerequisites</h2>
+
+          <section className="space-y-4">
+            <div className="flex items-center gap-3 mb-2">
+              <Icon name="check" size={24} className="text-brand-primary" />
+              <h2 className="text-xl font-bold text-foreground-primary uppercase tracking-tight">Provisioning Requirements</h2>
             </div>
-            <p className="text-foreground-secondary mb-4">
-              Before you begin, ensure you have the following installed on your system:
+            <p>
+              Before initializing deployment, ensure the target environment meets the following baseline metrics:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-foreground-secondary">
-              <li><strong>Node.js</strong> - Version 18.0 or higher</li>
-              <li><strong>npm</strong> or <strong>yarn</strong> - Package manager</li>
-              <li><strong>Git</strong> - For version control</li>
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <li className="p-3 bg-background-secondary/20 rounded-lg border border-white/5">
+                <span className="text-brand-primary font-bold block mb-1">Runtime</span> Node.js 18.x +
+              </li>
+              <li className="p-3 bg-background-secondary/20 rounded-lg border border-white/5">
+                <span className="text-brand-primary font-bold block mb-1">Engine</span> PNPM/NPM v10+
+              </li>
+              <li className="p-3 bg-background-secondary/20 rounded-lg border border-white/5">
+                <span className="text-brand-primary font-bold block mb-1">Compute</span> Docker Engine v24+
+              </li>
             </ul>
           </section>
 
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="download" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">Quick Start</h2>
+          <section className="space-y-4">
+            <div className="flex items-center gap-3 mb-2">
+              <Icon name="download" size={24} className="text-brand-primary" />
+              <h2 className="text-xl font-bold text-foreground-primary uppercase tracking-tight">System Initialization</h2>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-semibold text-foreground-primary mb-2">1. Clone the Repository</h3>
-                <Card className="bg-background-muted p-4">
-                  <code className="text-sm text-foreground-primary">
-                    git clone https://github.com/yourusername/portfolio-platform.git<br />
-                    cd portfolio-platform
+                <h3 className="text-sm font-bold text-foreground-primary mb-3 uppercase tracking-widest">01. Source Acquisition</h3>
+                <Card className="bg-background-muted p-4 border-l-4 border-brand-primary">
+                  <code className="text-xs text-foreground-primary whitespace-pre">
+                    git clone https://github.com/KieranArchi98/Atlas-Portfolio.git<br />
+                    cd Atlas-Portfolio/frontend
                   </code>
                 </Card>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-foreground-primary mb-2">2. Install Dependencies</h3>
-                <Card className="bg-background-muted p-4">
-                  <code className="text-sm text-foreground-primary">
-                    npm install<br />
-                    # or<br />
-                    yarn install
+                <h3 className="text-sm font-bold text-foreground-primary mb-3 uppercase tracking-widest">02. Dependency Synchronization</h3>
+                <Card className="bg-background-muted p-4 border-l-4 border-brand-primary">
+                  <code className="text-xs text-foreground-primary">
+                    npm install --frozen-lockfile
                   </code>
                 </Card>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-foreground-primary mb-2">3. Set Up Environment Variables</h3>
-                <p className="text-foreground-secondary mb-2">Create a <code className="bg-background-muted px-2 py-1 rounded">.env.local</code> file in the root directory:</p>
-                <Card className="bg-background-muted p-4">
-                  <code className="text-sm text-foreground-primary">
-                    DATABASE_URL="your_database_url"<br />
-                    NEXTAUTH_SECRET="your_secret_key"<br />
-                    NEXTAUTH_URL="http://localhost:3000"
+                <h3 className="text-sm font-bold text-foreground-primary mb-3 uppercase tracking-widest">03. Telemetry Configuration</h3>
+                <p className="text-xs mb-3">Initialize environment variables for the Gemini AI monitoring hooks:</p>
+                <Card className="bg-background-muted p-4 border-l-4 border-brand-primary">
+                  <code className="text-xs text-foreground-primary whitespace-pre">
+                    GEMINI_API_KEY="your_api_hook"<br />
+                    TELEMETRY_PORT=3000<br />
+                    CI_ENV="production"
                   </code>
                 </Card>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-foreground-primary mb-2">4. Run Database Migrations</h3>
-                <Card className="bg-background-muted p-4">
-                  <code className="text-sm text-foreground-primary">
-                    npx prisma migrate dev
-                  </code>
-                </Card>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-foreground-primary mb-2">5. Start the Development Server</h3>
-                <Card className="bg-background-muted p-4">
-                  <code className="text-sm text-foreground-primary">
-                    npm run dev<br />
-                    # or<br />
-                    yarn dev
-                  </code>
-                </Card>
-                <p className="text-foreground-secondary mt-2">
-                  Open <a href="http://localhost:3000" className="text-brand-primary hover:underline">http://localhost:3000</a> in your browser to see your portfolio.
-                </p>
               </div>
             </div>
           </section>
 
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="visible" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">Deployment</h2>
+          <section className="p-6 bg-background-secondary/10 border border-white/5 rounded-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <Icon name="visible" size={24} className="text-brand-primary" />
+              <h2 className="text-xl font-bold text-foreground-primary uppercase tracking-tight">Gemini AI Pipeline</h2>
             </div>
-            <p className="text-foreground-secondary mb-4">
-              Deploy your portfolio to production with these popular platforms:
+            <p className="text-xs mb-6 italic opacity-70">
+              The Gemini AI CI/CD engine handles automated testing, security scanning, and containerized deployment.
             </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <Card className="p-4">
-                <h3 className="font-semibold text-foreground-primary mb-2">Vercel (Recommended)</h3>
-                <p className="text-sm text-foreground-secondary mb-3">
-                  The easiest way to deploy Next.js applications.
-                </p>
-                <Card className="bg-background-muted p-3">
-                  <code className="text-xs text-foreground-primary">
-                    vercel deploy
-                  </code>
-                </Card>
-              </Card>
-              <Card className="p-4">
-                <h3 className="font-semibold text-foreground-primary mb-2">Netlify</h3>
-                <p className="text-sm text-foreground-secondary mb-3">
-                  Great alternative with continuous deployment.
-                </p>
-                <Card className="bg-background-muted p-3">
-                  <code className="text-xs text-foreground-primary">
-                    netlify deploy --prod
-                  </code>
-                </Card>
-              </Card>
+            <div className="grid md:grid-cols-2 gap-4 text-xs">
+              <div className="space-y-2">
+                <span className="text-brand-primary font-black uppercase tracking-widest">Phase A: Validation</span>
+                <p>Automated Jest and PyTest cycles with coverage reporting integrated into the terminal HUD.</p>
+              </div>
+              <div className="space-y-2">
+                <span className="text-brand-primary font-black uppercase tracking-widest">Phase B: Distribution</span>
+                <p>Multi-stage Docker builds optimized for edge computing and low-latency response times.</p>
+              </div>
             </div>
           </section>
 
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <Icon name="alert" size={28} className="text-brand-primary" />
-              <h2 className="text-2xl font-bold text-foreground-primary">Troubleshooting</h2>
+          <section className="space-y-4">
+            <div className="flex items-center gap-3 mb-2">
+              <Icon name="alert" size={24} className="text-brand-primary" />
+              <h2 className="text-xl font-bold text-foreground-primary uppercase tracking-tight">Integrity Verification</h2>
             </div>
-            <div className="space-y-3">
-              <div>
-                <h3 className="font-semibold text-foreground-primary">Port already in use?</h3>
-                <p className="text-sm text-foreground-secondary">
-                  Change the port by running: <code className="bg-background-muted px-2 py-1 rounded">PORT=3001 npm run dev</code>
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground-primary">Module not found errors?</h3>
-                <p className="text-sm text-foreground-secondary">
-                  Try deleting <code className="bg-background-muted px-2 py-1 rounded">node_modules</code> and <code className="bg-background-muted px-2 py-1 rounded">.next</code>, then run <code className="bg-background-muted px-2 py-1 rounded">npm install</code> again.
-                </p>
-              </div>
+            <div className="space-y-3 p-4 bg-brand-primary/5 rounded-xl text-xs">
+              <p className="font-bold text-foreground-primary">Mismatch in hydration?</p>
+              <p>Verify that the server and client clocks are synchronized within the Mission Control NTP pool.</p>
+              <p className="font-bold text-foreground-primary mt-4">Pipeline timeout?</p>
+              <p>Increase the Gemini AI observation window by adjusting the <code className="bg-background-muted px-1">WAIT_MS</code> token in the build config.</p>
             </div>
           </section>
         </div>

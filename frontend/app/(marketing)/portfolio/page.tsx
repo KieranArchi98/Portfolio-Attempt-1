@@ -22,82 +22,82 @@ const projects: Project[] = [
     {
         id: 'konnect',
         name: 'Konnect',
-        description: 'Agentic dashboard and centralized knowledge base',
-        longDescription: 'A sophisticated agentic command center designed to aggregate diverse knowledge streams and provide a unified interface for system-wide operations and information retrieval.',
-        image: '/placeholder-project.jpg',
-        technologies: ['React', 'Next.js', 'LLM Integration', 'Tailwind'],
+        description: 'Agentic LangChain dashboard & RAG knowledge base',
+        longDescription: 'A sophisticated agentic command center designed for LangChain agent orchestration and RAG knowledge base access, showcasing complex AI system utilization.',
+        image: '',
+        technologies: ['React', 'Python', 'LangChain', 'RAG'],
         githubUrl: 'https://github.com/KieranArchi98/Konnect',
     },
     {
         id: 'gemini-ai',
         name: 'Gemini AI',
-        description: 'Personalized LLM application interface',
-        longDescription: 'A custom-tailored interface leveraging Google Gemini models to provide specialized AI assistance, optimized for technical workflows and personal productivity.',
-        image: '/placeholder-project.jpg',
-        technologies: ['Python', 'Google AI SDK', 'Streamlit', 'API Design'],
+        description: 'LLM CI/CD & DevOps workflow showcase',
+        longDescription: 'An industry-standard LLM application created to demonstrate complex CI/CD and DevOps pipelines and workflows through a high-fidelity interface.',
+        image: '',
+        technologies: ['Python', 'React', 'DevOps', 'CI/CD'],
         githubUrl: 'https://github.com/KieranArchi98/Gemini-AI',
     },
     {
         id: 'netdoctor',
         name: 'NetDoctor',
-        description: 'Python-based network diagnostic utility',
-        longDescription: 'An automated network health monitoring and troubleshooting tool. It performs rapid diagnostics across various protocols to identify bottlenecks and connectivity failures.',
-        image: '/placeholder-project.jpg',
-        technologies: ['Python', 'Scapy', 'Network Protocols', 'CLI Automation'],
+        description: 'Python GUI toolkit for advanced sysadmin',
+        longDescription: 'A comprehensive Python-based GUI toolkit designed for system administrators to solve real-world system monitoring and troubleshooting problems.',
+        image: '',
+        technologies: ['Python', 'GUI', 'Sysadmin', 'Networking'],
         githubUrl: 'https://github.com/KieranArchi98/NetDoctor',
     },
     {
         id: 'powershell-toolkit',
         name: 'Powershell CLI Toolkit',
-        description: 'Sysadmin troubleshooting and automation suite',
-        longDescription: 'A comprehensive collection of PowerShell scripts designed for system administrators to automate repetitive tasks, audit security, and troubleshoot Windows environments.',
-        image: '/placeholder-project.jpg',
-        technologies: ['PowerShell', 'Windows Server', 'Automation', 'Scripting'],
+        description: 'Automation suit for sysadmin workflows',
+        longDescription: 'The PowerShell counterpart to NetDoctor, designed to automate complex sysadmin workflows and leverage technology for repetitive tasks.',
+        image: '',
+        technologies: ['PowerShell', 'Automation', 'Sysadmin', 'Scripting'],
         githubUrl: 'https://github.com/KieranArchi98/SysAdmin-CLI-Toolkit',
     },
     {
         id: 'cosmic-miner',
         name: 'Cosmic Miner',
-        description: 'Immersive space-themed idle clicker game',
-        longDescription: 'A complex idle game exploring celestial resource extraction. Features intricate progression systems, prestige mechanics, and a data-driven upgrade architecture.',
-        image: '/placeholder-project.jpg',
-        technologies: ['TypeScript', 'Vite', 'State Management', 'Game Logic'],
+        description: 'React exploration in game development',
+        longDescription: 'An idle clicker game exploration where users mine planets, discover periodic table elements, and travel to new worlds using a React-based engine.',
+        image: '',
+        technologies: ['React', 'Game Dev', 'State Management', 'UI/UX'],
         githubUrl: 'https://github.com/KieranArchi98/Cosmic-Miner',
     },
     {
         id: 'harbor',
         name: 'Harbor',
-        description: 'Community-driven forum and discussion platform',
-        longDescription: 'A scalable, Reddit-inspired forum application featuring hierarchical discussions, user voting systems, and specialized technical communities.',
-        image: '/placeholder-project.jpg',
-        technologies: ['Next.js', 'PostgreSQL', 'Prisma', 'Auth.js'],
+        description: 'Reddit-inspired MERN stack forum platform',
+        longDescription: 'A community-driven discussion platform built using the MERN stack (MongoDB, Express, React, Node) to implement industrial-standard web practices.',
+        image: '',
+        technologies: ['MongoDB', 'Express', 'React', 'Node.js'],
         githubUrl: 'https://github.com/KieranArchi98/Harbor',
     },
     {
         id: 'packet-tracer',
         name: 'Enterprise Network Setup',
-        description: 'Complex Cisco Packet Tracer topology',
-        longDescription: 'A high-fidelity enterprise network simulation featuring multi-area OSPF routing, VLAN segmentation, EtherChannel, and secure Site-to-Site VPN tunnels for multi-branch connectivity.',
-        image: '/projects/packet-tracer.png',
-        technologies: ['Cisco Packet Tracer', 'OSPF', 'VLANs', 'VPN'],
+        description: 'Complex Cisco Packet Tracer network topology',
+        longDescription: 'A high-fidelity enterprise network simulation designed in Cisco Packet Tracer to demonstrate advanced routing, switching, and secure topology design.',
+        image: '',
+        technologies: ['Cisco', 'Packet Tracer', 'Networking', 'Routing'],
         githubUrl: 'https://github.com/KieranArchi98/Network-Architectures',
     },
     {
         id: 'ad-dc-environment',
         name: 'Corporate AD/DC Environment',
-        description: 'Windows Server infrastructure implementation',
-        longDescription: 'A production-grade Active Directory Domain Controller setup. Includes complex Group Policy Objects (GPOs), automated user onboarding via PowerShell, and highly available DNS/DHCP services.',
-        image: '/projects/ad-dc.png',
-        technologies: ['Windows Server', 'Active Directory', 'GPO', 'DNS/DHCP'],
+        description: 'Windows Server infrastructure management',
+        longDescription: 'A real-world Active Directory Domain Controller setup showcasing configuration, management, and essential system administration duties.',
+        image: '',
+        technologies: ['Active Directory', 'Windows Server', 'Sysadmin', 'DC Management'],
         githubUrl: 'https://github.com/KieranArchi98/Enterprise-Infrastructure',
     },
     {
         id: 'project-x',
         name: 'Project X',
-        description: 'Experimental system interoperability research',
-        longDescription: 'A high-stability research project focused on cross-platform system interoperability and advanced cryptographic task handling. Explores state-of-the-art data integrity verification methods.',
-        image: '/projects/project-x.png',
-        technologies: ['Cryptography', 'Rust', 'System Interaction', 'Low-level API'],
+        description: 'Experimental high-stability system research',
+        longDescription: 'A work-in-progress experimental project focused on high-stability system architecture and cryptographic research (Unannounced).',
+        image: '',
+        technologies: ['WIP', 'Experimental', 'Research', 'Coming Soon'],
         githubUrl: 'https://github.com/KieranArchi98/Project-X',
     }
 ];
@@ -173,9 +173,20 @@ export default function PortfolioPage() {
 
                                 <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
                                     {/* Left: Visual */}
-                                    <div className="relative h-64 lg:h-auto bg-gradient-to-br from-brand-primary/10 to-background-primary flex items-center justify-center overflow-hidden border-b lg:border-b-0 lg:border-r border-border-default">
+                                    <div className="relative h-64 lg:h-auto bg-brand-primary/5 flex items-center justify-center overflow-hidden border-b lg:border-b-0 lg:border-r border-border-default">
                                         <div className="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-primary/20 via-transparent to-transparent" />
-                                        <Icon name="code" size={120} className="text-brand-primary/20 relative z-10" />
+
+                                        {selectedProject.image && !selectedProject.image.includes('placeholder') ? (
+                                            <img
+                                                src={selectedProject.image}
+                                                alt={selectedProject.name}
+                                                className="absolute inset-0 w-full h-full object-cover opacity-80"
+                                            />
+                                        ) : (
+                                            <div className="relative z-10 text-brand-primary/30 w-full h-full">
+                                                <ProjectVisualizer id={selectedProject.id} />
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Right: Content */}
