@@ -96,11 +96,42 @@ const StructuralVault = () => (
  * CELESTIAL BACKGROUND COMPONENTS
  */
 
+const BrightStar = ({ top, left, size, delay }: any) => (
+    <motion.div
+        className="absolute z-[1]"
+        style={{ top, left }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{
+            opacity: [0.4, 0.8, 0.4],
+            scale: [0.8, 1.1, 0.8],
+        }}
+        transition={{
+            duration: 4,
+            repeat: Infinity,
+            delay,
+            ease: "easeInOut"
+        }}
+    >
+        {/* Glow */}
+        <div
+            className="absolute inset-0 rounded-full bg-brand-primary blur-[4px] opacity-40 shadow-[0_0_15px_var(--color-brand-primary)]"
+            style={{ width: size * 4, height: size * 4, transform: 'translate(-50%, -50%)' }}
+        />
+        {/* Glint Cross */}
+        <div className="relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-6 bg-gradient-to-b from-transparent via-brand-primary/80 to-transparent" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-[1px] bg-gradient-to-r from-transparent via-brand-primary/80 to-transparent" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_var(--color-brand-primary)]" />
+        </div>
+    </motion.div>
+);
+
 const Starscape = () => {
     const [stars, setStars] = useState<any[]>([]);
+    const [brightStars, setBrightStars] = useState<any[]>([]);
 
     useEffect(() => {
-        const generatedStars = Array.from({ length: 250 }).map((_, i) => ({
+        const generatedStars = Array.from({ length: 200 }).map((_, i) => ({
             id: i,
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
@@ -110,10 +141,19 @@ const Starscape = () => {
             opacity: Math.random() * 0.4 + 0.1
         }));
         setStars(generatedStars);
+
+        const generatedBright = Array.from({ length: 12 }).map((_, i) => ({
+            id: i,
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            size: Math.random() * 2 + 1,
+            delay: Math.random() * 10
+        }));
+        setBrightStars(generatedBright);
     }, []);
 
     return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-[-5%] overflow-visible pointer-events-none">
             <style dangerouslySetInnerHTML={{
                 __html: `
                 @keyframes twinkle {
@@ -136,48 +176,67 @@ const Starscape = () => {
                     }}
                 />
             ))}
+            {brightStars.map(star => (
+                <BrightStar key={star.id} {...star} />
+            ))}
         </div>
     );
 };
 
 const CelestialEvent = () => {
     const [events, setEvents] = useState<any[]>([]);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isInView, setIsInView] = useState(false);
 
     useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsInView(entry.isIntersecting),
+            { threshold: 0.1 }
+        );
+        if (containerRef.current) observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!isInView) return;
+
+        let timeoutId: NodeJS.Timeout;
+
+        const scheduleEvent = () => {
+            const delay = 10000 + Math.random() * 10000; // 10-20 seconds
+            timeoutId = setTimeout(() => {
+                createEvent();
+                scheduleEvent();
+            }, delay);
+        };
+
         const createEvent = () => {
             const type = Math.random() > 0.6 ? 'meteor' : 'shooting-star';
             const id = Math.random();
 
-            // Diagonal trajectories across the screen
+            // Trayectories relative to the section container (%)
             const diagonal = Math.floor(Math.random() * 4);
             let startX, startY, endX, endY;
 
             switch (diagonal) {
                 case 0: // top-left to bottom-right
-                    startX = -5;
-                    startY = Math.random() * 30;
-                    endX = 105;
-                    endY = 70 + Math.random() * 30;
+                    startX = -20; startY = Math.random() * 30;
+                    endX = 120; endY = 70 + Math.random() * 30;
                     break;
                 case 1: // top-right to bottom-left
-                    startX = 105;
-                    startY = Math.random() * 30;
-                    endX = -5;
-                    endY = 70 + Math.random() * 30;
+                    startX = 120; startY = Math.random() * 30;
+                    endX = -20; endY = 70 + Math.random() * 30;
                     break;
                 case 2: // bottom-left to top-right
-                    startX = -5;
-                    startY = 70 + Math.random() * 30;
-                    endX = 105;
-                    endY = Math.random() * 30;
+                    startX = -20; startY = 70 + Math.random() * 30;
+                    endX = 120; endY = Math.random() * 30;
                     break;
                 default: // bottom-right to top-left
-                    startX = 105;
-                    startY = 70 + Math.random() * 30;
-                    endX = -5;
-                    endY = Math.random() * 30;
+                    startX = 120; startY = 70 + Math.random() * 30;
+                    endX = -20; endY = Math.random() * 30;
             }
 
+            // Calculate angle based on the path
             const angle = Math.atan2(endY - startY, endX - startX) * (180 / Math.PI);
 
             const newEvent = { id, type, startX, startY, endX, endY, angle };
@@ -185,47 +244,47 @@ const CelestialEvent = () => {
 
             setTimeout(() => {
                 setEvents(prev => prev.filter(e => e.id !== id));
-            }, type === 'meteor' ? 4000 : 5000);
+            }, 6000);
         };
 
-        // Less frequent, more impactful events
-        const interval = setInterval(createEvent, 4000);
-        setTimeout(createEvent, 1000); // Start with one after a delay
-
-        return () => clearInterval(interval);
-    }, []);
+        scheduleEvent();
+        return () => clearTimeout(timeoutId);
+    }, [isInView]);
 
     return (
-        <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+        <div ref={containerRef} className="absolute inset-0 pointer-events-none z-0 overflow-visible">
             <AnimatePresence>
-                {events.map(event => (
+                {events.map((event: any) => (
                     <motion.div
                         key={event.id}
                         initial={{
-                            x: `${event.startX}vw`,
-                            y: `${event.startY}vh`,
+                            left: `${event.startX}%`,
+                            top: `${event.startY}%`,
                             opacity: 0,
                             scale: 0.5
                         }}
                         animate={{
-                            x: `${event.endX}vw`,
-                            y: `${event.endY}vh`,
-                            opacity: [0, 1, 1, 0],
-                            scale: [0.5, 1, 1, 0.5]
+                            left: `${event.endX}%`,
+                            top: `${event.endY}%`,
+                            opacity: [0, 1, 1, 1],
+                            scale: [0.5, 1, 1, 1]
                         }}
                         exit={{ opacity: 0 }}
                         transition={{
-                            duration: event.type === 'meteor' ? 3 : 4,
+                            duration: 3.5, // 2-3x faster
                             ease: "linear",
                             opacity: { times: [0, 0.1, 0.9, 1] }
                         }}
                         className={`absolute ${event.type === 'meteor'
-                                ? 'w-[200px] md:w-[400px] h-[2px] bg-gradient-to-r from-transparent via-brand-primary/60 to-transparent'
-                                : 'w-[150px] md:w-[300px] h-[1.5px] bg-gradient-to-r from-transparent via-brand-primary/40 to-transparent'
+                            ? 'w-[150px] md:w-[300px] h-[1.5px] bg-gradient-to-r from-transparent via-brand-primary/60 to-transparent'
+                            : 'w-[100px] md:w-[200px] h-[1px] bg-gradient-to-r from-transparent via-brand-primary/40 to-transparent'
                             } blur-[0.5px]`}
-                        style={{ rotate: `${event.angle}deg` }}
+                        style={{
+                            rotate: `${event.angle}deg`,
+                            transformOrigin: 'center center'
+                        }}
                     >
-                        <div className="absolute right-0 w-3 h-3 bg-brand-primary/80 rounded-full blur-sm" />
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-brand-primary/95 rounded-full blur-[2px]" />
                     </motion.div>
                 ))}
             </AnimatePresence>
@@ -525,7 +584,7 @@ export function PricingFinalCTA() {
     ];
 
     return (
-        <section ref={sectionRef} className="h-screen min-h-[800px] relative bg-white overflow-hidden flex items-center justify-center">
+        <section ref={sectionRef} className="h-screen min-h-[800px] relative bg-white overflow-visible flex items-center justify-center">
             {/* Celestial Layers */}
             <Starscape />
             <DriftingBodies />
