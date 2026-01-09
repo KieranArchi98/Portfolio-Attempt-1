@@ -8,87 +8,98 @@ import { Icon } from '../ui/Icon';
  * HIGH-FIDELITY WEB3 ANIMATIONS
  */
 
-const QuantumNode = () => (
-    <div className="relative w-8 h-8 md:w-9 md:h-9">
+const LogicFlow = () => (
+    <div className="relative w-8 h-8 flex items-center justify-center">
+        <svg viewBox="0 0 32 32" className="w-full h-full drop-shadow-[0_0_8px_rgba(var(--color-brand-primary-rgb),0.3)]">
+            <motion.path
+                d="M4 16h8l4-8 4 16 4-8h8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                className="text-brand-primary/10"
+            />
+            <motion.path
+                d="M4 16h8l4-8 4 16 4-8h8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                strokeDasharray="40"
+                strokeDashoffset="40"
+                animate={{ strokeDashoffset: [40, -40] } as any}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                className="text-brand-primary"
+            />
+        </svg>
+    </div>
+);
+
+const SecureStack = () => (
+    <div className="relative w-8 h-8 flex flex-col items-center justify-center gap-0.5">
         {[0, 1, 2].map(i => (
             <motion.div
                 key={i}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8 + i * 4, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border border-brand-primary/20 rounded-[30%_70%_70%_30%/30%_30%_70%_70%]"
-                style={{ rotate: i * 45 }}
+                animate={{
+                    y: [0, -2, 0],
+                    opacity: [0.3, 0.8, 0.3],
+                    scale: [1, 1.05, 1]
+                } as any}
+                transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.5 }}
+                className="w-7 h-1.5 border border-brand-primary/40 rounded-[2px] bg-brand-primary/5"
+                style={{ transform: 'rotateX(45deg) rotateZ(-10deg)' } as any}
             />
         ))}
         <motion.div
-            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="absolute inset-0 m-auto w-1 h-1 bg-brand-primary rounded-full shadow-[0_0_12px_var(--color-brand-primary)]"
+            animate={{ height: ["0%", "100%", "0%"], opacity: [0, 0.5, 0] } as any}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="absolute w-[1.5px] bg-brand-primary/60 left-1/2 -translate-x-1/2"
         />
     </div>
 );
 
-const NeuralCore = () => (
-    <div className="relative w-6 h-6 md:w-7 md:h-7">
-        {[...Array(3)].map((_, i) => (
-            <motion.div
-                key={i}
-                animate={{
-                    scale: [1, 1.5],
-                    opacity: [0.8, 0],
-                    borderWidth: ["1.5px", "0.5px"]
-                }}
-                transition={{ duration: 2, repeat: Infinity, delay: i * 0.6 }}
-                className="absolute inset-0 border border-brand-primary rounded-full"
-            />
-        ))}
+const GlobalMesh = () => (
+    <div className="relative w-8 h-8 flex items-center justify-center">
         <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0"
+            animate={{ rotate: 360 } as any}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 border border-brand-primary/10 rounded-full"
         >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-brand-primary rounded-full shadow-[0_0_8px_var(--color-brand-primary)]" />
+            {[0, 60, 120, 180, 240, 300].map(deg => (
+                <div key={deg} className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[1px] bg-brand-primary/5" style={{ transform: `rotate(${deg}deg)` }} />
+            ))}
         </motion.div>
-        <div className="absolute inset-0 m-auto w-2 h-2 bg-white border border-brand-primary rounded-full z-10" />
-    </div>
-);
-
-const DataStream = () => (
-    <div className="flex gap-1 h-5 md:h-5.5 items-end">
-        {[...Array(5)].map((_, i) => (
-            <div key={i} className="relative w-0.5 md:w-0.8 h-full bg-brand-primary/5 rounded-full overflow-hidden">
-                <motion.div
-                    animate={{
-                        height: ["0%", "100%", "0%"],
-                        top: ["0%", "0%", "100%"]
-                    }}
-                    transition={{
-                        duration: 1.5 + i * 0.2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.1
-                    }}
-                    className="absolute w-full bg-gradient-to-b from-transparent via-brand-primary to-transparent"
-                />
-            </div>
-        ))}
-    </div>
-);
-
-const StructuralVault = () => (
-    <div className="relative w-6 h-6 md:w-7 md:h-7 rotate-45">
         {[0, 1].map(i => (
             <motion.div
                 key={i}
-                animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: i === 0 ? 0 : 90,
-                    opacity: [0.4, 0.8, 0.4]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 border border-brand-primary/30 rounded-sm"
+                animate={{ scale: [1, 1.4, 1], opacity: [0.1, 0.4, 0.1] } as any}
+                transition={{ duration: 3, repeat: Infinity, delay: i * 1.5 }}
+                className="absolute inset-0 border border-brand-primary/30 rounded-full"
             />
         ))}
-        <div className="absolute inset-0 m-auto w-1 h-1 bg-brand-primary rounded-full shadow-[0_0_8px_var(--color-brand-primary)]" />
+        <div className="w-2.5 h-2.5 bg-brand-primary rounded-full shadow-[0_0_12px_var(--color-brand-primary)]" />
+    </div>
+);
+
+const ActiveShield = () => (
+    <div className="relative w-8 h-8 flex items-center justify-center">
+        <motion.div
+            animate={{ rotate: 360 } as any}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 border-[1.5px] border-dashed border-brand-primary/30 rounded-full"
+        />
+        <motion.div
+            animate={{ rotate: -360 } as any}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-1.5 border border-brand-primary/50 rounded-full"
+        />
+        <motion.div
+            animate={{
+                boxShadow: ["0 0 5px var(--color-brand-primary)", "0 0 15px var(--color-brand-primary)", "0 0 5px var(--color-brand-primary)"],
+                scale: [0.9, 1.1, 0.9]
+            } as any}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1.5 h-1.5 bg-brand-primary rounded-full"
+        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/0 via-brand-primary/5 to-transparent rounded-full animate-pulse" />
     </div>
 );
 
@@ -99,12 +110,12 @@ const StructuralVault = () => (
 const BrightStar = ({ top, left, size, delay }: any) => (
     <motion.div
         className="absolute z-[1]"
-        style={{ top, left }}
-        initial={{ opacity: 0, scale: 0 }}
+        style={{ top, left } as any}
+        initial={{ opacity: 0, scale: 0 } as any}
         animate={{
             opacity: [0.4, 0.8, 0.4],
             scale: [0.8, 1.1, 0.8],
-        }}
+        } as any}
         transition={{
             duration: 4,
             repeat: Infinity,
@@ -153,7 +164,7 @@ const Starscape = () => {
     }, []);
 
     return (
-        <div className="absolute inset-[-5%] overflow-visible pointer-events-none">
+        <div className="absolute top-[-5%] bottom-[-5%] left-0 right-0 overflow-visible pointer-events-none">
             <style dangerouslySetInnerHTML={{
                 __html: `
                 @keyframes twinkle {
@@ -262,14 +273,14 @@ const CelestialEvent = () => {
                             top: `${event.startY}%`,
                             opacity: 0,
                             scale: 0.5
-                        }}
+                        } as any}
                         animate={{
                             left: `${event.endX}%`,
                             top: `${event.endY}%`,
                             opacity: [0, 1, 1, 1],
                             scale: [0.5, 1, 1, 1]
-                        }}
-                        exit={{ opacity: 0 }}
+                        } as any}
+                        exit={{ opacity: 0 } as any}
                         transition={{
                             duration: 3.5, // 2-3x faster
                             ease: "linear",
@@ -282,7 +293,7 @@ const CelestialEvent = () => {
                         style={{
                             rotate: `${event.angle}deg`,
                             transformOrigin: 'center center'
-                        }}
+                        } as any}
                     >
                         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-brand-primary/95 rounded-full blur-[2px]" />
                     </motion.div>
@@ -354,7 +365,7 @@ const CentralCore = () => (
                 style={{ backgroundImage: 'conic-gradient(from 0deg, var(--color-brand-primary), transparent, var(--color-brand-primary))' }}
             />
             <div className="relative z-10 flex flex-col items-center gap-0.5">
-                <Icon name="activity" size={28} className="text-brand-primary" />
+                <Icon name="server" size={28} className="text-brand-primary" />
                 <span className="text-[8px] font-black font-mono text-brand-primary tracking-[0.3em] uppercase">Core</span>
             </div>
         </div>
@@ -527,10 +538,10 @@ export function PricingFinalCTA() {
     const globalNodes = [
         {
             id: 0,
-            title: "Uptime",
-            value: "99.9%",
-            detail: "SLA_NODE",
-            graphic: <QuantumNode />,
+            title: "Software & AI",
+            value: "100% Type-Safe",
+            detail: "MODERN_ENGINEERING",
+            graphic: <LogicFlow />,
             orbit: {
                 id: 0,
                 radiusMobile: 140,
@@ -541,10 +552,10 @@ export function PricingFinalCTA() {
         },
         {
             id: 1,
-            title: "Sync",
-            value: "<12h",
-            detail: "LATENCY",
-            graphic: <NeuralCore />,
+            title: "Cloud & Systems",
+            value: "99.99% Uptime",
+            detail: "HIGH_AVAILABILITY",
+            graphic: <SecureStack />,
             orbit: {
                 id: 1,
                 radiusMobile: 210,
@@ -555,10 +566,10 @@ export function PricingFinalCTA() {
         },
         {
             id: 2,
-            title: "Network",
-            value: "Global",
-            detail: "CDN_NODE",
-            graphic: <DataStream />,
+            title: "Networking",
+            value: "<1ms Latency",
+            detail: "FIBER_BACKBONE",
+            graphic: <GlobalMesh />,
             orbit: {
                 id: 2,
                 radiusMobile: 280,
@@ -569,10 +580,10 @@ export function PricingFinalCTA() {
         },
         {
             id: 3,
-            title: "Vault",
-            value: "Hard",
-            detail: "SEC_ARCH",
-            graphic: <StructuralVault />,
+            title: "Tech Support",
+            value: "24/7 Active",
+            detail: "ON_SITE_STABILITY",
+            graphic: <ActiveShield />,
             orbit: {
                 id: 3,
                 radiusMobile: 350,
@@ -584,7 +595,7 @@ export function PricingFinalCTA() {
     ];
 
     return (
-        <section ref={sectionRef} className="h-screen min-h-[800px] relative bg-white overflow-visible flex items-center justify-center">
+        <section ref={sectionRef} className="h-screen min-h-[800px] relative bg-white overflow-x-clip overflow-y-visible flex items-center justify-center">
             {/* Celestial Layers */}
             <Starscape />
             <DriftingBodies />
