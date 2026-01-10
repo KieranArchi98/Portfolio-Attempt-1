@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Icon } from '../ui/Icon';
+import { useState, useEffect } from 'react';
 
 interface Certification {
     name: string;
@@ -13,6 +14,14 @@ interface Certification {
 }
 
 const CardParticles = ({ color }: { color: string }) => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) return <div className="absolute inset-[-40px] pointer-events-none overflow-visible" />;
+
     return (
         <div className="absolute inset-[-40px] pointer-events-none overflow-visible">
             {[...Array(6)].map((_, i) => (

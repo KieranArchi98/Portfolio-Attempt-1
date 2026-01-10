@@ -228,19 +228,33 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-16 lg:gap-24">
 
           {/* Left: Persona Sidebar */}
-          <div className="xl:col-span-4 xl:sticky xl:top-32 h-fit space-y-12">
-            <div className="flex flex-col items-center xl:items-start gap-8">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="relative w-32 h-32 md:w-48 md:h-48 rounded-3xl p-1 border border-white/10 backdrop-blur-3xl overflow-hidden bg-background-secondary/20 shadow-2xl flex items-center justify-center transform -rotate-3 hover:rotate-0 transition-transform duration-500"
-              >
-                <PersonaVisualizer />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/10 to-transparent" />
-              </motion.div>
+          <div className="xl:col-span-4 xl:sticky xl:top-32 h-fit space-y-6">
+            {/* 2-column layout on medium and smaller screens */}
+            <div className="grid grid-cols-2 xl:grid-cols-1 gap-6 xl:gap-8 items-start">
+              {/* Avatar Column */}
+              <div className="flex flex-col items-center xl:items-start">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="relative w-full aspect-square max-w-[200px] rounded-3xl p-1 border border-white/10 backdrop-blur-3xl overflow-hidden bg-background-secondary/20 shadow-2xl flex items-center justify-center transform -rotate-3 hover:rotate-0 transition-transform duration-500"
+                >
+                  <PersonaVisualizer />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/10 to-transparent" />
+                </motion.div>
 
-              <div className="space-y-6 text-center xl:text-left">
-                <div>
+                <div className="mt-6 xl:hidden">
+                  <h1 className="text-3xl font-black text-foreground-primary tracking-tighter uppercase font-mono leading-none">
+                    Dev<span className="text-brand-primary block">Ledger</span>
+                  </h1>
+                  <p className="text-[9px] font-black uppercase tracking-[0.3em] text-brand-primary/40 font-mono mt-2">
+                    Systems Architecture & AI
+                  </p>
+                </div>
+              </div>
+
+              {/* Text/Description Column */}
+              <div className="space-y-6">
+                <div className="hidden xl:block xl:mb-4">
                   <h1 className="text-4xl md:text-6xl font-black text-foreground-primary tracking-tighter uppercase font-mono leading-none">
                     Dev<span className="text-brand-primary block">Ledger</span>
                   </h1>
@@ -249,11 +263,16 @@ export default function BlogPage() {
                   </p>
                 </div>
 
-                <div className="p-6 bg-background-secondary/30 border border-border-default rounded-2xl backdrop-blur-xl relative group">
+                {/* Speech Bubble Description */}
+                <div className="relative p-6 bg-background-secondary/30 border border-border-default rounded-2xl backdrop-blur-xl group">
+                  {/* Speech bubble tail - pointing to avatar on xl screens */}
+                  <div className="hidden xl:block absolute -left-3 top-8 w-0 h-0 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-r-[12px] border-r-border-default" />
+                  <div className="hidden xl:block absolute -left-[11px] top-[33px] w-0 h-0 border-t-[11px] border-t-transparent border-b-[11px] border-b-transparent border-r-[11px] border-r-background-secondary/30" />
+
                   <p className="text-xs font-mono text-foreground-secondary leading-relaxed lowercase">
                     Tracking the evolution of technical systems, design patterns, and agentic intelligence. most recent updates at the top of the stream.
                   </p>
-                  <div className="mt-6 flex gap-4 opacity-40 group-hover:opacity-100 transition-opacity justify-center xl:justify-start">
+                  <div className="mt-6 flex gap-4 opacity-40 group-hover:opacity-100 transition-opacity">
                     <Icon name="github" size={16} className="hover:text-brand-primary cursor-pointer" />
                     <Icon name="linkedin" size={16} className="hover:text-brand-primary cursor-pointer" />
                   </div>
@@ -264,20 +283,110 @@ export default function BlogPage() {
 
           {/* Right: Timeline & Posts */}
           <div className="xl:col-span-8 relative">
-            {/* The Vertical Ledger Line */}
-            <div className="absolute right-0 lg:right-4 top-0 bottom-0 w-[1px] bg-border-default/30 overflow-hidden hidden sm:block">
+            {/* Ultra-Interactive Holographic Progress Bar */}
+            <div className="absolute right-0 lg:right-8 top-0 bottom-0 w-[6px] overflow-visible hidden sm:block">
+              {/* Outer glow container */}
+              <div className="absolute inset-0 -left-2 -right-2">
+                {/* Pulsing outer glow */}
+                <motion.div
+                  animate={{
+                    opacity: [0.2, 0.5, 0.2],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="absolute inset-0 bg-brand-primary/10 blur-xl rounded-full"
+                />
+              </div>
+
+              {/* Main track */}
+              <div className="absolute inset-0 bg-gradient-to-b from-border-default/20 via-border-default/10 to-border-default/20 rounded-full overflow-hidden">
+                {/* Animated background pattern */}
+                <motion.div
+                  animate={{ y: ["0%", "100%"] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 bg-[linear-gradient(transparent_0%,rgba(var(--color-brand-primary-rgb),0.05)_50%,transparent_100%)] bg-[length:100%_50px]"
+                />
+              </div>
+
+              {/* Progress fill with holographic effect */}
               <motion.div
                 style={{ scaleY, originY: 0 }}
-                className="absolute inset-0 w-full bg-brand-primary shadow-[0_0_15px_rgba(var(--color-brand-primary-rgb),0.5)]"
+                className="absolute inset-0 rounded-full overflow-hidden"
+              >
+                {/* Multi-layer gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-primary via-brand-primary/80 to-brand-primary/60" />
+
+                {/* Holographic shimmer */}
+                <motion.div
+                  animate={{
+                    y: ["-200%", "200%"],
+                    opacity: [0, 1, 0]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent"
+                />
+
+                {/* Energy pulse waves */}
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      y: ["0%", "100%"],
+                      opacity: [0, 0.6, 0]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: i * 0.7,
+                      ease: "easeInOut"
+                    }}
+                    className="absolute left-0 right-0 h-8 bg-gradient-to-b from-transparent via-white/30 to-transparent blur-sm"
+                  />
+                ))}
+
+                {/* Glowing top cap */}
+                <motion.div
+                  animate={{ opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="absolute top-0 left-0 right-0 h-2 bg-white/60 blur-sm"
+                />
+              </motion.div>
+
+              {/* Particle system */}
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{
+                    y: ["-100%", "-200%"],
+                    opacity: [0, 1, 0],
+                    x: [0, (i % 2 === 0 ? 4 : -4), 0]
+                  }}
+                  transition={{
+                    duration: 3 + i * 0.5,
+                    repeat: Infinity,
+                    delay: i * 0.5,
+                    ease: "linear"
+                  }}
+                  className="absolute left-1/2 -translate-x-1/2 w-1 h-1 bg-brand-primary rounded-full shadow-[0_0_8px_rgba(var(--color-brand-primary-rgb),0.8)]"
+                />
+              ))}
+
+              {/* Interactive hover glow */}
+              <motion.div
+                whileHover={{ scale: 1.5, opacity: 0.8 }}
+                className="absolute inset-0 bg-brand-primary/0 hover:bg-brand-primary/20 rounded-full transition-all duration-300 blur-md"
               />
+
+              {/* Data packets with trails */}
               <DataPacket delay={0} />
-              <DataPacket delay={1} />
-              <DataPacket delay={2} />
+              <DataPacket delay={1.5} />
+              <DataPacket delay={3} />
             </div>
 
             <div className="flex flex-col gap-24 lg:gap-32">
               {posts.map((post, idx) => (
-                <div key={post.slug} className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-center">
+                <div key={post.slug} className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center">
                   {/* Blog Content Card */}
                   <motion.div
                     initial={{ opacity: 0, x: -30 }}

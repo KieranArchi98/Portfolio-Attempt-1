@@ -83,11 +83,11 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
     return (
         <section className="py-24 relative overflow-hidden bg-white">
             <div className="w-full md:w-[95%] lg:w-[90%] min-[1330px]:w-[85%] 2xl:w-[80%] mx-auto px-4 md:px-6 relative z-10">
-                <div className="grid grid-cols-1 min-[1330px]:grid-cols-12 gap-12 lg:gap-16">
+                <div className="grid grid-cols-1 min-[1330px]:grid-cols-12 gap-8 lg:gap-12">
 
                     {/* Left Sidebar: Introduction */}
-                    <div className="min-[1330px]:col-span-4 min-[1330px]:sticky min-[1330px]:top-32 h-fit space-y-12 order-1">
-                        <div className="space-y-6">
+                    <div className="min-[1330px]:col-span-3 min-[1330px]:sticky min-[1330px]:top-32 h-fit space-y-12 order-1 relative z-50 pointer-events-none">
+                        <div className="space-y-6 pointer-events-auto">
                             <motion.div
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -101,10 +101,10 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                                 </span>
                             </motion.div>
 
-                            <div className="flex flex-row items-center justify-between gap-4">
-                                <div className="relative group overflow-visible">
+                            <div className="space-y-4">
+                                <div className="relative group overflow-visible flex-shrink">
                                     {/* Main Title Background Shadow for Depth */}
-                                    <div className="absolute inset-0 translate-x-[2px] translate-y-[2px] opacity-10 select-none pointer-events-none uppercase font-heading text-4xl md:text-5xl lg:text-8xl font-black tracking-[-0.1em] blur-[2px]">
+                                    <div className="absolute inset-0 translate-x-[2px] translate-y-[2px] opacity-10 select-none pointer-events-none uppercase font-heading text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1330px]:text-[clamp(2.5rem,4vw,4.5rem)] font-black tracking-[-0.1em] blur-[2px]">
                                         {title}
                                     </div>
 
@@ -112,7 +112,7 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                                         initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
                                         transition={{ duration: 0.1 }}
-                                        className="text-4xl md:text-5xl lg:text-8xl font-black text-foreground-primary tracking-[-0.1em] uppercase font-heading leading-[0.85] relative z-20"
+                                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1330px]:text-[clamp(2.5rem,4vw,4.5rem)] font-black text-foreground-primary tracking-[-0.1em] uppercase font-heading leading-[0.85] relative z-50 pointer-events-none"
                                     >
                                         {title}
                                     </motion.h2>
@@ -132,7 +132,7 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                                                 times: [0, 0.2, 0.4, 0.6, 1],
                                                 ease: "linear"
                                             }}
-                                            className="absolute inset-0 text-brand-primary/40 select-none pointer-events-none z-10 text-4xl md:text-5xl lg:text-8xl font-black tracking-[-0.1em] uppercase font-heading leading-[0.85]"
+                                            className="absolute inset-0 text-brand-primary/40 select-none pointer-events-none z-10 text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1330px]:text-[clamp(2.5rem,4vw,4.5rem)] font-black tracking-[-0.1em] uppercase font-heading leading-[0.85]"
                                             style={{
                                                 clipPath: `inset(${i * 25}% 0 ${(3 - i) * 25}% 0)`,
                                             }}
@@ -151,9 +151,9 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                                     />
                                 </div>
 
-                                {/* TELEMETRY GRAPHIC */}
-                                <div className="flex items-center gap-4 h-16 md:h-20 shrink-0">
-                                    <div className="flex flex-col gap-1 items-end">
+                                {/* TELEMETRY GRAPHIC - Now below title on large screens */}
+                                <div className="flex items-center gap-2 h-10 md:h-12 relative z-50 pointer-events-none">
+                                    <div className="flex flex-col gap-1 items-start">
                                         <div className="flex gap-0.5">
                                             {[...Array(8)].map((_, i) => (
                                                 <motion.div
@@ -179,7 +179,7 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                                         </div>
                                     </div>
 
-                                    <div className="relative w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
+                                    <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
                                         <motion.div
                                             animate={{ rotate: 360 }}
                                             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
@@ -247,7 +247,7 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                     </div>
 
                     {/* Right Side: Plans Content */}
-                    <div className="min-[1330px]:col-span-8 order-2 relative">
+                    <div className="min-[1330px]:col-span-9 order-2 relative">
 
                         {/* Mobile Navigation Arrows (Flanking) */}
                         <div className="min-[1330px]:hidden absolute top-1/2 -left-2 -right-2 -translate-y-1/2 flex justify-between pointer-events-none z-30">
@@ -271,7 +271,7 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                         <div
                             ref={scrollRef}
                             onScroll={handleScroll}
-                            className="flex min-[1330px]:grid min-[1330px]:grid-cols-3 gap-6 overflow-x-auto pb-8 min-[1330px]:pb-0 scrollbar-hide snap-x snap-mandatory overflow-y-hidden px-4 min-[1330px]:px-0"
+                            className="flex min-[1330px]:grid min-[1330px]:grid-cols-3 gap-6 overflow-x-auto pb-12 pt-4 min-[1330px]:pb-4 scrollbar-hide snap-x snap-mandatory overflow-y-hidden px-4 min-[1330px]:px-0"
                             style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
                         >
                             <style jsx>{`
@@ -286,7 +286,7 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1, duration: 0.8 }}
-                                    className="min-w-[100%] min-[1330px]:min-w-0 h-full flex flex-col snap-center shrink-0 min-[1330px]:shrink"
+                                    className="min-w-[100%] min-[1330px]:min-w-0 h-full flex flex-col snap-center shrink-0 min-[1330px]:shrink p-2"
                                 >
                                     <div
                                         className={`h-full relative flex flex-col gap-10 w-full p-8 lg:p-10 rounded-[2.5rem] border transition-all duration-700 overflow-hidden group ${plan.isPopular
