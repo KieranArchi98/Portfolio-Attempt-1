@@ -6,7 +6,7 @@ import { SystemCTA } from '@/app/sharedComponents/sections/SystemCTA';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-12 md:gap-16">
+    <div className="flex flex-col gap-12 md:gap-16 pt-40">
       <InteractiveHero
         titlePrefix="Portfolio Intelligence for   "
         dynamicPhrases={["Designers.", "Engineers.", "Strategists.", "Your Brand."]}

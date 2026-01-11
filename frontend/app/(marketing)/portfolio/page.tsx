@@ -110,7 +110,7 @@ export default function PortfolioPage() {
             {/* Background Effect */}
             <PortfolioBackground />
 
-            <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[85%] 2xl:w-[80%] mx-auto px-4 md:px-6 relative z-10 pt-10">
+            <div className="w-full md:w-[95%] lg:w-[90%] xl:w-[85%] 2xl:w-[80%] mx-auto px-4 md:px-6 relative z-10 pt-64">
                 {/* Projects Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
                     {projects.map((project, index) => {

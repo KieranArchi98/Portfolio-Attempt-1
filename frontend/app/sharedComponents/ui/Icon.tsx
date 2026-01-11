@@ -29,6 +29,7 @@ import {
     PlayCircle02Icon,
     ArrowLeft01Icon as ChevronLeftIcon,
     ArrowRight01Icon as ChevronRightIcon,
+    TwitterIcon,
 } from 'hugeicons-react';
 
 /* 
@@ -68,6 +69,7 @@ export const ICONS = {
     globe: Globe02Icon,
     "chevron-left": ChevronLeftIcon,
     "chevron-right": ChevronRightIcon,
+    twitter: TwitterIcon,
 };
 
 export type IconName = keyof typeof ICONS;

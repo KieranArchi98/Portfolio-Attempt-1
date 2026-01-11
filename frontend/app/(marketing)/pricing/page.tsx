@@ -5,7 +5,7 @@ import { PricingTable } from '@/app/sharedComponents/sections/PricingTable';
 
 export default function PricingPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-40">
       <PricingTable
         icon="trending-up"
         title="Dynamic Pricing"

@@ -101,97 +101,99 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                                 </span>
                             </motion.div>
 
-                            <div className="space-y-4">
-                                <div className="relative group overflow-visible flex-shrink">
-                                    {/* Main Title Background Shadow for Depth */}
-                                    <div className="absolute inset-0 translate-x-[2px] translate-y-[2px] opacity-10 select-none pointer-events-none uppercase font-heading text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1330px]:text-[clamp(2.5rem,4vw,4.5rem)] font-black tracking-[-0.1em] blur-[2px]">
-                                        {title}
-                                    </div>
+                            <div className="space-y-4 pt-4 min-[1330px]:pt-0"> {/* Added top padding for mobile breathing room */}
+                                <div className="flex flex-row items-center flex-nowrap min-[1330px]:flex-col min-[1330px]:items-start gap-4 min-[1330px]:gap-4">
+                                    <div className="relative group overflow-visible flex-shrink">
+                                        {/* Main Title Background Shadow for Depth */}
+                                        <div className="absolute inset-0 translate-x-[2px] translate-y-[2px] opacity-10 select-none pointer-events-none uppercase font-heading text-4xl md:text-5xl lg:text-6xl min-[1330px]:text-5xl font-black tracking-[-0.1em] blur-[2px]">
+                                            {title}
+                                        </div>
 
-                                    <motion.h2
-                                        initial={{ opacity: 0 }}
-                                        whileInView={{ opacity: 1 }}
-                                        transition={{ duration: 0.1 }}
-                                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1330px]:text-[clamp(2.5rem,4vw,4.5rem)] font-black text-foreground-primary tracking-[-0.1em] uppercase font-heading leading-[0.85] relative z-50 pointer-events-none"
-                                    >
-                                        {title}
-                                    </motion.h2>
-
-                                    {/* Digital Slices (Glitch Layers) */}
-                                    {[...Array(4)].map((_, i) => (
-                                        <motion.div
-                                            key={`slice-${i}`}
-                                            initial={{ opacity: 0, x: 0 }}
-                                            whileInView={{
-                                                opacity: [0, 1, 0, 1, 0],
-                                                x: [0, (i % 2 === 0 ? 10 : -10), 0, (i % 2 === 0 ? -5 : 5), 0],
-                                            }}
-                                            transition={{
-                                                duration: 0.8,
-                                                delay: 0.1 * i,
-                                                times: [0, 0.2, 0.4, 0.6, 1],
-                                                ease: "linear"
-                                            }}
-                                            className="absolute inset-0 text-brand-primary/40 select-none pointer-events-none z-10 text-2xl md:text-3xl lg:text-4xl xl:text-5xl min-[1330px]:text-[clamp(2.5rem,4vw,4.5rem)] font-black tracking-[-0.1em] uppercase font-heading leading-[0.85]"
-                                            style={{
-                                                clipPath: `inset(${i * 25}% 0 ${(3 - i) * 25}% 0)`,
-                                            }}
-                                            aria-hidden="true"
+                                        <motion.h2
+                                            initial={{ opacity: 0 }}
+                                            whileInView={{ opacity: 1 }}
+                                            transition={{ duration: 0.1 }}
+                                            className="text-4xl md:text-5xl lg:text-6xl min-[1330px]:text-5xl font-black text-foreground-primary tracking-[-0.1em] uppercase font-heading leading-[0.85] relative z-50 pointer-events-none"
                                         >
                                             {title}
-                                        </motion.div>
-                                    ))}
+                                        </motion.h2>
 
-                                    {/* Fragmented Scanning Line */}
-                                    <motion.div
-                                        initial={{ top: "-10%", opacity: 0 }}
-                                        whileInView={{ top: "110%", opacity: [0, 1, 0] }}
-                                        transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
-                                        className="absolute left-[-10%] right-[-10%] h-[2px] bg-gradient-to-r from-transparent via-brand-primary to-transparent z-30 blur-[1px]"
-                                    />
-                                </div>
+                                        {/* Digital Slices (Glitch Layers) */}
+                                        {[...Array(4)].map((_, i) => (
+                                            <motion.div
+                                                key={`slice-${i}`}
+                                                initial={{ opacity: 0, x: 0 }}
+                                                whileInView={{
+                                                    opacity: [0, 1, 0, 1, 0],
+                                                    x: [0, (i % 2 === 0 ? 10 : -10), 0, (i % 2 === 0 ? -5 : 5), 0],
+                                                }}
+                                                transition={{
+                                                    duration: 0.8,
+                                                    delay: 0.1 * i,
+                                                    times: [0, 0.2, 0.4, 0.6, 1],
+                                                    ease: "linear"
+                                                }}
+                                                className="absolute inset-0 text-brand-primary/40 select-none pointer-events-none z-10 text-4xl md:text-5xl lg:text-6xl min-[1330px]:text-5xl font-black tracking-[-0.1em] uppercase font-heading leading-[0.85]"
+                                                style={{
+                                                    clipPath: `inset(${i * 25}% 0 ${(3 - i) * 25}% 0)`,
+                                                }}
+                                                aria-hidden="true"
+                                            >
+                                                {title}
+                                            </motion.div>
+                                        ))}
 
-                                {/* TELEMETRY GRAPHIC - Now below title on large screens */}
-                                <div className="flex items-center gap-2 h-10 md:h-12 relative z-50 pointer-events-none">
-                                    <div className="flex flex-col gap-1 items-start">
-                                        <div className="flex gap-0.5">
-                                            {[...Array(8)].map((_, i) => (
-                                                <motion.div
-                                                    key={i}
-                                                    animate={{
-                                                        height: [4, Math.random() * 20 + 10, 4],
-                                                        opacity: [0.3, 1, 0.3]
-                                                    }}
-                                                    transition={{
-                                                        duration: 0.8 + Math.random(),
-                                                        repeat: Infinity,
-                                                        ease: "easeInOut"
-                                                    }}
-                                                    className="w-[3px] bg-brand-primary rounded-full"
-                                                />
-                                            ))}
-                                        </div>
-                                        <div className="flex items-center gap-2 opacity-30">
-                                            <div className="w-1 h-1 rounded-full bg-brand-primary animate-pulse" />
-                                            <span className="text-[7px] font-mono font-black text-brand-primary uppercase tracking-widest leading-none">
-                                                Live_Feed
-                                            </span>
-                                        </div>
+                                        {/* Fragmented Scanning Line */}
+                                        <motion.div
+                                            initial={{ top: "-10%", opacity: 0 }}
+                                            whileInView={{ top: "110%", opacity: [0, 1, 0] }}
+                                            transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
+                                            className="absolute left-[-10%] right-[-10%] h-[2px] bg-gradient-to-r from-transparent via-brand-primary to-transparent z-30 blur-[1px]"
+                                        />
                                     </div>
 
-                                    <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-                                        <motion.div
-                                            animate={{ rotate: 360 }}
-                                            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                            className="absolute inset-0 border-t border-r border-brand-primary/20 rounded-full"
-                                        />
-                                        <motion.div
-                                            animate={{ rotate: -360 }}
-                                            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                                            className="absolute inset-2 border-b border-l border-brand-primary/10 rounded-full border-dashed"
-                                        />
-                                        <div className="text-[10px] font-mono font-black text-brand-primary opacity-40 animate-pulse">
-                                            TX
+                                    {/* TELEMETRY GRAPHIC - Now below title on large screens */}
+                                    <div className="flex items-center gap-2 h-10 md:h-12 relative z-50 pointer-events-none scale-90 origin-left">
+                                        <div className="flex flex-col gap-1 items-start">
+                                            <div className="flex gap-0.5">
+                                                {[...Array(8)].map((_, i) => (
+                                                    <motion.div
+                                                        key={i}
+                                                        animate={{
+                                                            height: [4, Math.random() * 20 + 10, 4],
+                                                            opacity: [0.3, 1, 0.3]
+                                                        }}
+                                                        transition={{
+                                                            duration: 0.8 + Math.random(),
+                                                            repeat: Infinity,
+                                                            ease: "easeInOut"
+                                                        }}
+                                                        className="w-[3px] bg-brand-primary rounded-full"
+                                                    />
+                                                ))}
+                                            </div>
+                                            <div className="flex items-center gap-2 opacity-30">
+                                                <div className="w-1 h-1 rounded-full bg-brand-primary animate-pulse" />
+                                                <span className="text-[7px] font-mono font-black text-brand-primary uppercase tracking-widest leading-none">
+                                                    Live_Feed
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+                                            <motion.div
+                                                animate={{ rotate: 360 }}
+                                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                                                className="absolute inset-0 border-t border-r border-brand-primary/20 rounded-full"
+                                            />
+                                            <motion.div
+                                                animate={{ rotate: -360 }}
+                                                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                                                className="absolute inset-2 border-b border-l border-brand-primary/10 rounded-full border-dashed"
+                                            />
+                                            <div className="text-[10px] font-mono font-black text-brand-primary opacity-40 animate-pulse">
+                                                TX
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +273,7 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                         <div
                             ref={scrollRef}
                             onScroll={handleScroll}
-                            className="flex min-[1330px]:grid min-[1330px]:grid-cols-3 gap-6 overflow-x-auto pb-12 pt-4 min-[1330px]:pb-4 scrollbar-hide snap-x snap-mandatory overflow-y-hidden px-4 min-[1330px]:px-0"
+                            className="flex min-[1330px]:grid min-[1330px]:grid-cols-3 gap-6 overflow-x-auto pb-12 pt-12 min-[1330px]:pb-20 scrollbar-hide snap-x snap-mandatory overflow-y-visible px-4 min-[1330px]:px-0"
                             style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
                         >
                             <style jsx>{`
@@ -286,7 +288,7 @@ export function PricingTable({ icon, title, subtitle, plans }: PricingTableProps
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1, duration: 0.8 }}
-                                    className="min-w-[100%] min-[1330px]:min-w-0 h-full flex flex-col snap-center shrink-0 min-[1330px]:shrink p-2"
+                                    className={`min-w-[100%] min-[1330px]:min-w-0 h-full flex flex-col snap-center shrink-0 min-[1330px]:shrink p-2 ${plan.isPopular ? 'z-20 relative' : 'z-10 relative'}`}
                                 >
                                     <div
                                         className={`h-full relative flex flex-col gap-10 w-full p-8 lg:p-10 rounded-[2.5rem] border transition-all duration-700 overflow-hidden group ${plan.isPopular

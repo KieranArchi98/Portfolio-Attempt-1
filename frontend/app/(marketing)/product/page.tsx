@@ -7,7 +7,7 @@ import { ProductFeatureVisual } from '@/app/sharedComponents/sections/ProductFea
 
 export default function ProductPage() {
   return (
-    <>
+    <div className="pt-48">
       <ProductHero
         sectionTag="SYSTEM_STATUS: ONLINE"
         title="Systems & Software Engineering"
@@ -53,6 +53,6 @@ export default function ProductPage() {
 
       {/* Certifications Section */}
       <Certifications />
-    </>
+    </div>
   );
 }

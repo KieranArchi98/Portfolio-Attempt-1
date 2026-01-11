@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Icon } from '@/app/sharedComponents/ui/Icon';
 
 const PersonaVisualizer = () => {
@@ -220,7 +220,7 @@ export default function BlogPage() {
   }, [scrollYProgress, posts.length]);
 
   return (
-    <div ref={sectionRef} className="pt-24 pb-48 relative bg-background-primary min-h-screen overflow-visible">
+    <div ref={sectionRef} className="pt-64 pb-48 relative bg-background-primary min-h-screen overflow-visible">
       {/* Background Effects */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.03)_0%,transparent_50%)] pointer-events-none" />
 
